@@ -350,7 +350,7 @@ $("#home").addEventListener("click", e => {
 function apri(n, da) {
   const r = trova(n); if (!r) return home();
   modCorr = r.m; lezCorr = r.l;
-  slides = [{ t: "apertura" }, { t: "scaletta" }, ...r.l.slide, { t: "chiusura" }];
+  slides = [{ t: "apertura" }, ...r.l.slide, { t: "chiusura" }];
   idx = Math.max(0, Math.min(da || 0, slides.length - 1));
   document.documentElement.style.setProperty("--acc", r.m.colore);
   $("#titBarra").textContent = `Modulo ${r.m.n} · Lezione ${r.l.n} — ${r.l.titolo}`;
