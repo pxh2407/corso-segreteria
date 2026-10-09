@@ -1,449 +1,399 @@
 /* =========================================================
-   CONTENUTI DEL CORSO — si modifica SOLO questo file.
-   Tipi di slide:
-     testo     { t, titolo, punti:[...], nota }
-     def       { t, titolo, termine, testo }
-     due       { t, titolo, sx:{titolo,punti}, dx:{titolo,punti} }
-     tabella   { t, titolo, intest:[...], righe:[[...],...] }
-     esercizio { t, titolo, consegna, punti?, soluzione:[...] }
-     quiz      { t, domanda, opzioni:[...], giusta:indice, spiega }
-     riepilogo { t, punti:[...] }
-     flusso    { t, titolo, passi:[{titolo,testo}], nota }      (frecce in sequenza)
-     schede    { t, titolo, voci:[{ico,titolo,testo}] }          (riquadri con icona)
-     numeri    { t, titolo, voci:[{num,testo}], nota }           (numeri grandi)
-     matrice   { t, titolo, colonne:[..], righe:[..], celle:[[{titolo,testo},..],..] }
-     lettera   { t, titolo }                                     (fac-simile di lettera)
-   Ogni slide può avere ico:"nome" per scegliere l'icona (vedi elenco ICONE in index.html).
-   Per il grassetto: **parola**
+   TESTI DELLA DISPENSA — si modifica SOLO questo file.
+   Argomenti presi dal PDF "Argomenti da Trattare" del docente.
+
+   Come si scrive il testo di un argomento:
+     ## Titoletto           → sottotitolo
+     - voce                 → elenco puntato
+     | a | b | c |          → tabella (la prima riga è l'intestazione)
+     > testo                → riquadro "Da ricordare"
+     riga vuota             → nuovo paragrafo
+     **parola**             → grassetto
    ========================================================= */
 
 const CORSO = {
   titolo: "Addetto amministrativo segretariale",
-  sottotitolo: "Corso di formazione professionale · 9 lezioni da 4 ore",
+  docente: "Principato Stefania",
+  calendario: [
+    ["Martedì", "03/11/2026", "9:00 – 12:00"],
+    ["Mercoledì", "04/11/2026", "9:00 – 12:00"],
+    ["Venerdì", "06/11/2026", "9:00 – 12:00"],
+    ["Lunedì", "09/11/2026", "9:00 – 12:00"],
+    ["Mercoledì", "11/11/2026", "9:00 – 12:00"],
+    ["Venerdì", "13/11/2026", "9:00 – 12:00"]
+  ],
   moduli: [
   /* ======================= MODULO 1 ======================= */
   {
     n: 1,
     titolo: "Tecniche di archiviazione",
     colore: "#1f3a5f",
-    lezioni: [
-    /* ---------------- LEZIONE 1 ---------------- */
+    argomenti: [
     {
-      n: 1,
-      titolo: "Il documento e l'archivio",
-      sottotitolo: "Concetti di base, ciclo di vita, norme di riferimento",
-      obiettivi: [
-        "Sapere cos'è un documento e cos'è un archivio",
-        "Distinguere archivio corrente, di deposito e storico",
-        "Conoscere le principali norme che regolano i documenti",
-        "Capire perché un buon archivio fa risparmiare tempo e denaro"
-      ],
-      scaletta: [
-        ["0:00 – 0:20", "Accoglienza, presentazione del corso e dei partecipanti"],
-        ["0:20 – 1:30", "Il documento: definizione, tipi, elementi"],
-        ["1:30 – 1:45", "Pausa"],
-        ["1:45 – 2:50", "L'archivio e il suo ciclo di vita · le norme"],
-        ["2:50 – 3:35", "Esercitazioni in gruppo"],
-        ["3:35 – 4:00", "Quiz, riepilogo e domande"]
-      ],
-      slide: [
-        { t: "def", titolo: "Che cos'è un documento", termine: "Documento",
-          testo: "Qualsiasi rappresentazione — su carta o in formato digitale — di **atti, fatti o dati** che hanno un valore giuridico, amministrativo o informativo." },
-        { t: "testo", titolo: "Gli elementi di un documento", punti: [
-          "**Autore**: chi lo ha prodotto (persona, ufficio, azienda)",
-          "**Destinatario**: a chi è rivolto",
-          "**Data** e luogo di redazione",
-          "**Oggetto**: di che cosa tratta, in poche parole",
-          "**Contenuto**: il testo vero e proprio",
-          "**Sottoscrizione**: firma autografa o firma digitale"
-        ]},
-        { t: "due", titolo: "Documento analogico e informatico",
-          sx: { titolo: "Analogico", punti: ["Su supporto fisico (carta)", "Firma autografa", "Si conserva in faldoni e armadi", "Rischi: umidità, fuoco, smarrimento"] },
-          dx: { titolo: "Informatico", punti: ["File su computer o server", "Firma digitale o elettronica", "Si conserva in sistemi digitali", "Rischi: guasti, virus, file illeggibili"] } },
-        { t: "schede", titolo: "Documenti in entrata, in uscita, interni", voci: [
-          { ico: "entrata", titolo: "In entrata", testo: "Ricevuti dall'esterno: lettere, fatture dei fornitori, PEC, reclami" },
-          { ico: "uscita", titolo: "In uscita", testo: "Spediti all'esterno: preventivi, lettere, fatture ai clienti" },
-          { ico: "interno", titolo: "Interni", testo: "Circolano solo in ufficio: circolari, note, verbali di riunione" }
-        ]},
-        { t: "testo", titolo: "Originale, copia, duplicato", punti: [
-          "**Originale**: il documento nella sua prima stesura definitiva, firmato",
-          "**Copia**: riproduzione dell'originale; vale come prova se è **conforme**",
-          "**Copia conforme**: copia attestata come identica all'originale da chi ne ha titolo",
-          "**Duplicato**: nel digitale, file identico bit per bit all'originale",
-          "**Estratto**: riporta solo una parte del documento"
-        ]},
-        { t: "def", titolo: "Che cos'è un archivio", termine: "Archivio",
-          testo: "L'insieme ordinato dei documenti **prodotti o ricevuti** da un ufficio, un'azienda o un ente durante la propria attività. I documenti sono legati tra loro da un rapporto naturale: il **vincolo archivistico**." },
-        { t: "testo", titolo: "Perché archiviare bene", punti: [
-          "**Ritrovare** un documento in pochi secondi, non in mezz'ora",
-          "**Provare** un fatto: un contratto, un pagamento, una consegna",
-          "**Continuità**: chiunque, anche un collega, sa dove cercare",
-          "**Obblighi di legge**: alcuni documenti vanno conservati per anni",
-          "**Riservatezza**: i dati personali vanno protetti",
-          "**Immagine**: un ufficio ordinato ispira fiducia"
-        ]},
-        { t: "flusso", titolo: "Il ciclo di vita dell'archivio", passi: [
-          { titolo: "Corrente", testo: "Pratiche in corso, consultate ogni giorno. In ufficio, a portata di mano." },
-          { titolo: "Di deposito", testo: "Pratiche chiuse, consultate di rado. In un locale apposito." },
-          { titolo: "Storico", testo: "Documenti scelti da conservare per sempre." }
-        ], nota: "I documenti passano da una fase all'altra con il tempo: il passaggio va fatto con regolarità, ad esempio una volta l'anno." },
-        { t: "testo", titolo: "Le norme di riferimento", punti: [
-          "**DPR 445/2000** — documentazione amministrativa e protocollo",
-          "**D.Lgs. 82/2005 (CAD)** — Codice dell'Amministrazione Digitale",
-          "**D.Lgs. 42/2004** — gli archivi pubblici sono beni culturali",
-          "**Codice civile, artt. 2214-2220** — scritture contabili, conservazione **10 anni**",
-          "**Regolamento UE 2016/679 (GDPR)** — protezione dei dati personali"
-        ], nota: "Gli uffici pubblici hanno obblighi più rigidi; le aziende private seguono comunque le stesse buone pratiche." },
-        { t: "testo", titolo: "Le qualità dell'addetto all'archivio", punti: [
-          "**Ordine** e **precisione**: un documento fuori posto è un documento perso",
-          "**Metodo**: stesse regole, sempre, per tutti",
-          "**Riservatezza**: ciò che si legge in archivio resta in archivio",
-          "**Tempestività**: archiviare subito, non «quando avrò tempo»",
-          "**Collaborazione**: l'archivio serve a tutto l'ufficio"
-        ]},
-        { t: "esercizio", titolo: "Esercizio 1 · In quale fase?",
-          consegna: "Indica per ciascun documento se appartiene all'archivio corrente, di deposito o storico.",
-          punti: ["a) Pratica di un cliente ancora aperta", "b) Fatture di 6 anni fa", "c) Atto costitutivo della società del 1975", "d) Preventivo inviato ieri", "e) Contratto di affitto scaduto nel 2019"],
-          soluzione: ["a) Corrente", "b) Deposito (da conservare 10 anni)", "c) Storico", "d) Corrente", "e) Deposito"] },
-        { t: "esercizio", titolo: "Esercizio 2 · Entrata, uscita o interno?",
-          consegna: "Classifica i documenti.",
-          punti: ["a) Fattura ricevuta da un fornitore", "b) Circolare del direttore sugli orari estivi", "c) Lettera di risposta a un reclamo", "d) PEC ricevuta dal Comune", "e) Verbale della riunione di reparto"],
-          soluzione: ["a) Entrata", "b) Interno", "c) Uscita", "d) Entrata", "e) Interno"] },
-        { t: "quiz", domanda: "Che cos'è il «vincolo archivistico»?",
-          opzioni: ["Il lucchetto dell'armadio dell'archivio", "Il legame naturale che unisce i documenti prodotti da uno stesso soggetto", "L'obbligo di conservare i documenti per 10 anni"],
-          giusta: 1, spiega: "I documenti di un archivio non sono una semplice raccolta: sono collegati perché nascono dalla stessa attività." },
-        { t: "quiz", domanda: "Per quanti anni vanno conservate le scritture contabili?",
-          opzioni: ["5 anni", "10 anni", "20 anni"],
-          giusta: 1, spiega: "Lo stabilisce l'articolo 2220 del Codice civile." },
-        { t: "quiz", domanda: "Una pratica chiusa da 3 anni, consultata raramente, si trova di solito…",
-          opzioni: ["nell'archivio corrente", "nell'archivio di deposito", "nell'archivio storico"],
-          giusta: 1, spiega: "Il deposito accoglie le pratiche concluse ma ancora soggette a obblighi di conservazione." },
-        { t: "riepilogo", punti: [
-          "Il documento rappresenta atti o fatti rilevanti, su carta o in digitale",
-          "L'archivio è l'insieme ordinato e collegato dei documenti di un soggetto",
-          "Tre fasi: corrente → deposito → storico",
-          "Norme chiave: DPR 445/2000, CAD, Codice civile, GDPR"
-        ]}
-      ]
+      titolo: "Introduzione all'archiviazione",
+      sintesi: "Definizione, finalità e importanza dell'archivio in azienda.",
+      testo: `
+## Che cos'è un archivio
+L'**archivio** è l'insieme ordinato dei documenti che un'azienda, un ente o un professionista **produce o riceve** durante la propria attività: lettere, fatture, contratti, ordini, email, verbali, pratiche dei clienti.
+
+I documenti di un archivio non sono una semplice raccolta: sono collegati tra loro perché nascono dalla stessa attività. Questo legame si chiama **vincolo archivistico**.
+
+Con la parola «archivio» si indica anche il **luogo** (stanza, armadio, server) in cui i documenti sono conservati.
+
+## Che cos'è un documento
+Un **documento** è qualsiasi rappresentazione di atti, fatti o dati che hanno un valore giuridico, amministrativo o informativo. Può essere:
+- **cartaceo** (analogico): su carta, con firma a mano;
+- **informatico** (digitale): un file, con firma digitale o elettronica.
+
+## Le finalità dell'archivio
+- **Ritrovare** rapidamente qualsiasi documento quando serve.
+- **Provare** un fatto: un contratto firmato, un pagamento, una consegna.
+- **Garantire la continuità** del lavoro: anche un collega deve sapere dove cercare.
+- **Rispettare gli obblighi di legge**: alcuni documenti vanno conservati per anni.
+- **Proteggere** le informazioni riservate e i dati personali.
+
+## Perché è importante in azienda
+Un archivio disordinato costa: tempo perso a cercare, documenti smarriti, scadenze dimenticate, errori nei pagamenti, figuracce con clienti e fornitori. Un archivio ordinato, al contrario, rende l'ufficio **efficiente, affidabile e sicuro**.
+
+> L'archivio non è un «deposito di carte vecchie», ma uno strumento di lavoro quotidiano: si archivia **per ritrovare**.
+`
     },
-    /* ---------------- LEZIONE 2 ---------------- */
     {
-      n: 2,
-      titolo: "Protocollo, classificazione e fascicolo",
-      sottotitolo: "Come entra un documento e come trova il suo posto",
-      obiettivi: [
-        "Conoscere la funzione del registro di protocollo",
-        "Saper registrare un documento con tutti gli elementi",
-        "Capire che cos'è un titolario di classificazione",
-        "Saper aprire e tenere in ordine un fascicolo"
-      ],
-      scaletta: [
-        ["0:00 – 0:15", "Ripasso della lezione 1"],
-        ["0:15 – 1:30", "Il protocollo: funzione, elementi, procedure"],
-        ["1:30 – 1:45", "Pausa"],
-        ["1:45 – 2:45", "Titolario, classificazione, fascicolazione"],
-        ["2:45 – 3:35", "Esercitazione: protocollare la posta del giorno"],
-        ["3:35 – 4:00", "Quiz e riepilogo"]
-      ],
-      slide: [
-        { t: "def", titolo: "Il protocollo", termine: "Registro di protocollo",
-          testo: "Il registro in cui si annotano, in ordine progressivo, tutti i documenti **ricevuti e spediti**. Dà a ogni documento un **numero e una data certi**: è la sua «carta d'identità»." },
-        { t: "testo", titolo: "A che cosa serve il protocollo", punti: [
-          "**Prova** che un documento è arrivato o è partito in una certa data",
-          "**Rintraccia** il documento in qualsiasi momento",
-          "**Controlla** i tempi di risposta",
-          "Per le Pubbliche Amministrazioni è **obbligatorio** (DPR 445/2000)",
-          "Molte aziende lo adottano comunque per ordine e sicurezza"
-        ]},
-        { t: "testo", titolo: "Gli elementi della registrazione", punti: [
-          "**Numero di protocollo** — progressivo, ricomincia ogni 1° gennaio",
-          "**Data** di registrazione",
-          "**Mittente** (documenti in entrata) o **destinatario** (in uscita)",
-          "**Oggetto** — breve, chiaro, completo",
-          "Numero e data del documento ricevuto, se presenti",
-          "Numero e descrizione degli **allegati**"
-        ], nota: "Per i documenti informatici si registra anche l'impronta digitale del file." },
-        { t: "testo", titolo: "Come si scrive un buon oggetto", punti: [
-          "Deve far capire il contenuto **senza aprire** il documento",
-          "Evitare parole vaghe: «comunicazione», «varie», «richiesta»",
-          "Sì: «Richiesta preventivo fornitura carta A4 – anno 2027»",
-          "No: «Richiesta»",
-          "Usare sempre le stesse parole per le stesse cose"
-        ]},
-        { t: "tabella", titolo: "Esempio di registro di protocollo",
-          intest: ["N.", "Data", "E/U", "Mittente / Destinatario", "Oggetto"],
-          righe: [
-            ["125", "07/10/2026", "E", "Cartoleria Rossi srl", "Fattura n. 88 fornitura toner"],
-            ["126", "07/10/2026", "U", "Studio Bianchi", "Invio contratto firmato di consulenza"],
-            ["127", "08/10/2026", "E", "Comune di Milazzo", "Avviso rinnovo autorizzazione insegna"]
-          ]},
-        { t: "testo", titolo: "Le regole d'oro del protocollo", punti: [
-          "Un numero = **un solo** documento",
-          "Il numero **non si cancella** e non si riutilizza",
-          "Gli errori si correggono con **annullamento motivato**, mai con il bianchetto",
-          "Si protocolla **lo stesso giorno** in cui il documento arriva",
-          "Sul documento si appone la **segnatura**: numero, data, classifica"
-        ]},
-        { t: "def", titolo: "Il titolario di classificazione", termine: "Titolario",
-          testo: "Uno schema **ad albero** che divide tutte le attività dell'ufficio in categorie (titoli) e sottocategorie (classi). Ogni documento riceve un **codice** che indica a quale attività appartiene." },
-        { t: "tabella", titolo: "Esempio di titolario per una piccola azienda",
-          intest: ["Titolo", "Classi"],
-          righe: [
-            ["**1 – Amministrazione**", "1.1 Organi sociali · 1.2 Contratti · 1.3 Assicurazioni"],
-            ["**2 – Personale**", "2.1 Assunzioni · 2.2 Presenze · 2.3 Formazione"],
-            ["**3 – Contabilità**", "3.1 Fatture attive · 3.2 Fatture passive · 3.3 Banca"],
-            ["**4 – Clienti**", "4.1 Preventivi · 4.2 Ordini · 4.3 Reclami"],
-            ["**5 – Fornitori**", "5.1 Offerte · 5.2 Ordini · 5.3 Contestazioni"]
-          ]},
-        { t: "def", titolo: "Il fascicolo", termine: "Fascicolo",
-          testo: "La cartella che raccoglie **tutti i documenti di una stessa pratica**, dall'inizio alla fine, in ordine cronologico. Esempio: «Assunzione Mario Rossi – 2026»." },
-        { t: "testo", titolo: "Come si tiene un fascicolo", punti: [
-          "Sulla copertina: **codice di classifica**, titolo, anno, numero",
-          "Dentro: documenti in **ordine cronologico**",
-          "Si **apre** con il primo documento, si **chiude** a pratica conclusa",
-          "Data di chiusura annotata in copertina",
-          "Nessun documento «volante»: ogni foglio ha il suo fascicolo"
-        ]},
-        { t: "flusso", titolo: "Il percorso di un documento in entrata", passi: [
-          { titolo: "Ricezione", testo: "Posta, PEC, email, a mano" },
-          { titolo: "Protocollo", testo: "Numero, data, segnatura" },
-          { titolo: "Classifica", testo: "Codice del titolario" },
-          { titolo: "Assegnazione", testo: "All'ufficio competente" },
-          { titolo: "Fascicolo", testo: "Nella cartella della pratica" },
-          { titolo: "Archivio", testo: "A pratica conclusa" }
-        ]},
-        { t: "esercizio", titolo: "Esercizio · Protocolliamo la posta",
-          consegna: "Usando il titolario della slide precedente, assegna a ciascun documento la classe corretta e scrivi un oggetto chiaro.",
-          punti: ["a) Fattura del fornitore di cancelleria", "b) Curriculum di un candidato", "c) Lamentela di un cliente per ritardo nella consegna", "d) Polizza assicurativa dell'automezzo"],
-          soluzione: ["a) 3.2 Fatture passive — «Fattura n. … fornitura cancelleria»", "b) 2.1 Assunzioni — «Candidatura spontanea di … per impiegato amministrativo»", "c) 4.3 Reclami — «Reclamo cliente … per ritardo consegna ordine n. …»", "d) 1.3 Assicurazioni — «Polizza RC auto furgone targa …»"] },
-        { t: "quiz", domanda: "Il numero di protocollo…",
-          opzioni: ["si può riutilizzare se il documento viene annullato", "ricomincia da 1 ogni anno ed è unico per ogni documento", "viene assegnato solo ai documenti in uscita"],
-          giusta: 1, spiega: "È progressivo, annuale, e ogni numero identifica un solo documento, in entrata o in uscita." },
-        { t: "quiz", domanda: "A che cosa serve il titolario?",
-          opzioni: ["A classificare i documenti per attività", "A registrare la data di arrivo", "A conservare le firme"],
-          giusta: 0, spiega: "Il titolario è lo schema che collega ogni documento all'attività a cui si riferisce." },
-        { t: "quiz", domanda: "Ho sbagliato l'oggetto di una registrazione. Cosa faccio?",
-          opzioni: ["Lo cancello con il bianchetto", "Annullo la registrazione indicando il motivo", "Faccio finta di niente"],
-          giusta: 1, spiega: "Il registro di protocollo è un atto con valore di prova: si annulla in modo tracciato, mai si cancella." },
-        { t: "riepilogo", punti: [
-          "Il protocollo dà a ogni documento numero e data certi",
-          "Elementi: numero, data, mittente/destinatario, oggetto, allegati",
-          "Il titolario classifica i documenti per attività",
-          "Il fascicolo raccoglie tutta una pratica in ordine cronologico"
-        ]}
-      ]
+      titolo: "Tipologie di archivio",
+      sintesi: "Archivio corrente, di deposito e storico.",
+      testo: `
+Ogni documento attraversa nel tempo tre fasi, che corrispondono a tre tipi di archivio. Si parla di **ciclo di vita** del documento.
+
+| Tipo | Che cosa contiene | Quanto si consulta | Dove si trova |
+| **Corrente** | Pratiche in corso o appena concluse | Ogni giorno | In ufficio, a portata di mano |
+| **Di deposito** | Pratiche chiuse, ancora da conservare per legge o per utilità | Raramente | In un locale apposito o magazzino |
+| **Storico** | Documenti scelti per essere conservati per sempre | Per ricerche o anniversari | In un archivio storico dedicato |
+
+## Archivio corrente
+Contiene i documenti necessari al lavoro di tutti i giorni: le pratiche dei clienti attivi, le fatture dell'anno, la corrispondenza recente. Deve essere **vicino** a chi lavora e organizzato per una consultazione veloce.
+
+## Archivio di deposito
+Quando una pratica è chiusa, non serve più tenerla in ufficio, ma non si può ancora eliminare: passa all'archivio di deposito. Esempi: le fatture degli anni precedenti, i contratti scaduti, le pratiche del personale cessato.
+
+## Archivio storico
+Raccoglie i documenti che hanno un valore permanente: l'atto costitutivo della società, i verbali delle assemblee, i brevetti, le fotografie e i documenti importanti della storia dell'azienda.
+
+## Il passaggio da una fase all'altra
+Il trasferimento dal corrente al deposito va fatto con **regolarità** (ad esempio una volta l'anno, a gennaio), compilando un **elenco** di ciò che viene spostato. Dal deposito, alla scadenza dei tempi di conservazione, i documenti vengono **scartati** oppure, se di valore, passano allo storico.
+
+> Esempio: la fattura di questo mese è nel **corrente**; la fattura di sei anni fa è nel **deposito**; l'atto costitutivo del 1975 è nello **storico**.
+`
     },
-    /* ---------------- LEZIONE 3 ---------------- */
     {
-      n: 3,
-      titolo: "Sistemi di ordinamento e archivio cartaceo",
-      sottotitolo: "Metodi, strumenti, conservazione e scarto",
-      obiettivi: [
-        "Conoscere i principali metodi di ordinamento",
-        "Applicare correttamente le regole di ordinamento alfabetico",
-        "Scegliere gli strumenti fisici adatti",
-        "Sapere quando e come si scarta un documento"
-      ],
-      scaletta: [
-        ["0:00 – 0:15", "Ripasso della lezione 2"],
-        ["0:15 – 1:30", "I metodi di ordinamento e le regole alfabetiche"],
-        ["1:30 – 1:45", "Pausa"],
-        ["1:45 – 2:40", "Strumenti, conservazione e scarto"],
-        ["2:40 – 3:35", "Esercitazioni pratiche di ordinamento"],
-        ["3:35 – 4:00", "Quiz e riepilogo"]
-      ],
-      slide: [
-        { t: "tabella", titolo: "I metodi di ordinamento",
-          intest: ["Metodo", "Criterio", "Adatto per"],
-          righe: [
-            ["**Alfabetico**", "Cognome o ragione sociale", "Clienti, fornitori, dipendenti"],
-            ["**Numerico**", "Numero progressivo", "Fatture, ordini, pratiche numerate"],
-            ["**Cronologico**", "Data", "Corrispondenza, verbali"],
-            ["**Geografico**", "Luogo (regione, città)", "Reti di vendita, agenti"],
-            ["**Per materia**", "Argomento", "Normative, documentazione tecnica"],
-            ["**Alfanumerico**", "Lettere + numeri", "Codici articolo, classifiche"]
-          ]},
-        { t: "due", titolo: "Pregi e limiti",
-          sx: { titolo: "Alfabetico", punti: ["Intuitivo, non serve un indice", "Difficile con nomi simili o errori di grafia", "Bisogna lasciare spazi per le aggiunte"] },
-          dx: { titolo: "Numerico", punti: ["Espandibile all'infinito", "Più riservato (il nome non compare)", "Serve un indice o una rubrica per trovare il numero"] } },
-        { t: "testo", titolo: "Regole dell'ordinamento alfabetico (1)", punti: [
-          "Si ordina per **cognome**, poi per **nome**: Rossi Anna prima di Rossi Mario",
-          "A parità di cognome e nome: per **data di nascita** o città",
-          "**Il nulla precede il qualcosa**: Ross prima di Rossi",
-          "Cognomi con particella (**De**, **Di**, **La**) si ordinano con la particella: De Luca alla D",
-          "Cognomi doppi: si considera il **primo**: Rossi Bianchi alla R"
-        ]},
-        { t: "testo", titolo: "Regole dell'ordinamento alfabetico (2)", punti: [
-          "Ditte: per **ragione sociale**, senza contare srl, spa, snc",
-          "Si ignorano articoli iniziali: «La Bottega» alla **B**",
-          "Sigle: come se fossero una parola: **ENEL** alla E",
-          "Nomi di persona nelle ditte: «Mario Rossi srl» → **Rossi Mario srl**",
-          "Numeri: si scrivono in lettere o si mettono **prima** delle lettere (scegliere e rimanere coerenti)"
-        ], nota: "L'importante è che l'ufficio adotti regole scritte e le segua tutti." },
-        { t: "testo", titolo: "Gli strumenti dell'archivio cartaceo", punti: [
-          "**Cartelline** e **camicie**: per i singoli fascicoli",
-          "**Faldoni** (raccoglitori a scatola): per più fascicoli dello stesso tipo",
-          "**Raccoglitori ad anelli**: per documenti da consultare spesso",
-          "**Cartelle sospese** negli schedari: accesso rapido",
-          "**Armadi compattabili** (rotanti o su binari): grandi volumi in poco spazio",
-          "**Etichette** e **colori**: per riconoscere a colpo d'occhio"
-        ]},
-        { t: "testo", titolo: "Etichettare bene", punti: [
-          "Sul dorso: **anno**, **classifica**, **contenuto**, numero del faldone",
-          "Scrittura **grande e leggibile**, meglio stampata",
-          "Stesso formato per tutti i faldoni",
-          "Colori diversi per anno o per settore (es. blu = contabilità)",
-          "Un **elenco di consistenza**: dice cosa contiene ogni faldone e dove sta"
-        ]},
-        { t: "testo", titolo: "Conservare la carta", punti: [
-          "Locali **asciutti**, temperatura stabile (circa 18-20 °C)",
-          "Lontano da **luce solare** diretta e fonti di calore",
-          "Niente graffette metalliche a lungo termine: **arrugginiscono**",
-          "Scaffali staccati da pavimento e pareti",
-          "Estintori e rilevatori di fumo",
-          "Accesso **riservato** alle persone autorizzate"
-        ]},
-        { t: "def", titolo: "Lo scarto", termine: "Scarto d'archivio",
-          testo: "L'eliminazione **controllata** dei documenti che hanno esaurito la loro utilità e non devono più essere conservati per legge. Si decide in base al **massimario di scarto**." },
-        { t: "tabella", titolo: "Tempi di conservazione indicativi",
-          intest: ["Documento", "Conservazione"],
-          righe: [
-            ["Libri e scritture contabili, fatture", "**10 anni** (art. 2220 c.c.)"],
-            ["Corrispondenza commerciale", "**10 anni**"],
-            ["Documenti del personale (cedolini, contributi)", "Lunga: verificare con il consulente del lavoro"],
-            ["Atti costitutivi, verbali di assemblea, brevetti", "**Illimitata**"],
-            ["Bozze, copie di lavoro, pubblicità ricevuta", "Fino a fine utilità"]
-          ]},
-        { t: "testo", titolo: "Come si scarta in sicurezza", punti: [
-          "Mai buttare documenti interi nel cestino",
-          "Usare un **distruggidocumenti** o una ditta certificata",
-          "Redigere un **elenco** di ciò che si scarta, firmato dal responsabile",
-          "Nelle PA lo scarto richiede l'**autorizzazione** della Soprintendenza archivistica",
-          "Attenzione ai **dati personali**: vanno distrutti in modo irreversibile"
-        ]},
-        { t: "esercizio", titolo: "Esercizio · Ordina alfabeticamente",
-          consegna: "Metti in ordine alfabetico questi nominativi.",
-          punti: ["Rossi Mario · De Santis Luca · Ross Anna · La Bottega del Pane · Rossi Anna · ENEL spa · Bianchi Carlo · Di Stefano Rita"],
-          soluzione: ["1. Bianchi Carlo", "2. Bottega del Pane (La)", "3. De Santis Luca", "4. Di Stefano Rita", "5. ENEL spa", "6. Ross Anna", "7. Rossi Anna", "8. Rossi Mario"] },
-        { t: "esercizio", titolo: "Esercizio · Quale metodo?",
-          consegna: "Scegli il metodo di ordinamento più adatto.",
-          punti: ["a) Schede dei 300 clienti", "b) Fatture emesse nell'anno", "c) Verbali delle riunioni", "d) Pratiche degli agenti di vendita nelle varie province"],
-          soluzione: ["a) Alfabetico", "b) Numerico (che coincide con il cronologico)", "c) Cronologico", "d) Geografico"] },
-        { t: "quiz", domanda: "In ordine alfabetico, chi viene prima?",
-          opzioni: ["Rossi", "Ross", "Rossini"],
-          giusta: 1, spiega: "«Il nulla precede il qualcosa»: Ross è più corto e viene prima di Rossi e Rossini." },
-        { t: "quiz", domanda: "Dove si archivia «La Rinascente spa»?",
-          opzioni: ["Alla L", "Alla R", "Alla S"],
-          giusta: 1, spiega: "Si ignorano l'articolo iniziale e la forma societaria: conta «Rinascente»." },
-        { t: "quiz", domanda: "Come si eliminano documenti con dati personali?",
-          opzioni: ["Nel cestino della carta", "Con il distruggidocumenti o una ditta certificata", "Si portano a casa"],
-          giusta: 1, spiega: "La distruzione deve essere irreversibile per rispettare la normativa sulla privacy." },
-        { t: "riepilogo", punti: [
-          "Metodi: alfabetico, numerico, cronologico, geografico, per materia, alfanumerico",
-          "Regole alfabetiche scritte e uguali per tutti",
-          "Strumenti ed etichette uniformi; locali asciutti e protetti",
-          "Lo scarto è controllato, documentato e sicuro"
-        ]}
-      ]
+      titolo: "Tecniche di classificazione",
+      sintesi: "Metodo alfabetico, numerico, cronologico, alfanumerico e per argomento.",
+      testo: `
+**Classificare** significa decidere secondo quale criterio ordinare i documenti, in modo che chiunque possa ritrovarli. La scelta dipende dal tipo di documento e da come viene cercato.
+
+## Metodo alfabetico
+I documenti si ordinano secondo il **cognome** delle persone o la **ragione sociale** delle aziende.
+- Vantaggi: è intuitivo, non serve un indice.
+- Svantaggi: difficoltà con nomi simili, errori di grafia, cognomi composti.
+- Adatto per: clienti, fornitori, dipendenti.
+
+Regole principali:
+- si ordina per cognome, poi per nome: Rossi Anna prima di Rossi Mario;
+- «il nulla precede il qualcosa»: Ross viene prima di Rossi;
+- i cognomi con particella si ordinano con la particella: De Luca alla lettera D;
+- nelle ditte non si considerano articoli iniziali e forme societarie: «La Bottega srl» alla lettera B;
+- le sigle si leggono come una parola: ENEL alla lettera E.
+
+## Metodo numerico
+A ogni documento o pratica si assegna un **numero progressivo**.
+- Vantaggi: si espande senza limiti, è più riservato (il nome non compare).
+- Svantaggi: serve una rubrica o un indice per sapere quale numero corrisponde a chi.
+- Adatto per: fatture, ordini, pratiche numerate.
+
+## Metodo cronologico
+I documenti si ordinano per **data** (anno, mese, giorno).
+- Adatto per: corrispondenza, verbali, estratti conto.
+- Spesso si combina con altri metodi: ad esempio, cartella per cliente e, dentro, documenti in ordine di data.
+
+## Metodo alfanumerico
+Combina **lettere e numeri** in un codice. Esempio: «CL-0254» (cliente n. 254) oppure «2026/AMM/015».
+- Vantaggi: il codice dice subito a quale settore appartiene il documento.
+- Adatto per: archivi grandi, codici articolo, pratiche di diversi uffici.
+
+## Metodo per argomento (per materia)
+I documenti si raggruppano secondo il **tema**: «Assicurazioni», «Contratti», «Personale», «Sicurezza sul lavoro».
+- Adatto per: documentazione tecnica, normative, pratiche amministrative.
+- È la base del **titolario**, lo schema ad albero delle categorie dell'ufficio.
+
+| Documento | Metodo consigliato |
+| Schede dei clienti | Alfabetico |
+| Fatture emesse | Numerico (coincide con il cronologico) |
+| Verbali delle riunioni | Cronologico |
+| Pratiche di più uffici | Alfanumerico |
+| Normative e documentazione tecnica | Per argomento |
+
+> Qualunque metodo si scelga, le regole vanno **scritte** e seguite da **tutti** allo stesso modo.
+`
     },
-    /* ---------------- LEZIONE 4 ---------------- */
     {
-      n: 4,
-      titolo: "Archivio digitale e dematerializzazione",
-      sottotitolo: "Documento informatico, firma digitale, PEC, conservazione, privacy",
-      obiettivi: [
-        "Conoscere il documento informatico e il suo valore",
-        "Distinguere firma elettronica, digitale e PEC",
-        "Organizzare cartelle e nomi dei file in modo efficace",
-        "Conoscere le basi di backup, conservazione e privacy"
-      ],
-      scaletta: [
-        ["0:00 – 0:15", "Ripasso della lezione 3"],
-        ["0:15 – 1:30", "Documento informatico, firme, PEC, formati"],
-        ["1:30 – 1:45", "Pausa"],
-        ["1:45 – 2:40", "Cartelle, nomi dei file, backup, conservazione, GDPR"],
-        ["2:40 – 3:30", "Esercitazione al computer: creare un archivio digitale"],
-        ["3:30 – 4:00", "Quiz finale del Modulo 1"]
-      ],
-      slide: [
-        { t: "def", titolo: "La dematerializzazione", termine: "Dematerializzazione",
-          testo: "Il passaggio dalla carta al **digitale**: i documenti nascono, circolano e si conservano come file, con lo stesso valore legale della carta." },
-        { t: "due", titolo: "Vantaggi e attenzioni",
-          sx: { titolo: "Vantaggi", punti: ["Ricerca immediata", "Meno spazio e meno carta", "Condivisione tra colleghi", "Lavoro anche a distanza"] },
-          dx: { titolo: "Attenzioni", punti: ["Copie di sicurezza (backup)", "Formati leggibili nel tempo", "Protezione da accessi non autorizzati", "Ordine nelle cartelle"] } },
-        { t: "schede", titolo: "Firme elettroniche", voci: [
-          { ico: "mail", titolo: "Semplice", testo: "Es. il nome in fondo all'email. Valore limitato." },
-          { ico: "tablet", titolo: "Avanzata", testo: "Legata in modo univoco a chi firma. Es. firma su tablet in banca." },
-          { ico: "firma", titolo: "Digitale", testo: "Con certificato e dispositivo. **Equivale alla firma a mano.** File .p7m o PDF firmato." }
-        ]},
-        { t: "def", titolo: "La PEC", termine: "Posta Elettronica Certificata",
-          testo: "Email con **valore legale** pari a una raccomandata con ricevuta di ritorno. Il gestore rilascia una **ricevuta di accettazione** e una **ricevuta di consegna**, che fanno prova." },
-        { t: "testo", titolo: "Usare bene la PEC", punti: [
-          "Conservare **sempre** le ricevute di accettazione e consegna",
-          "Ha valore legale solo se **anche il destinatario** usa una PEC",
-          "Controllarla ogni giorno: i termini decorrono dalla consegna",
-          "Protocollare i messaggi PEC ricevuti come qualsiasi documento",
-          "Imprese e professionisti hanno l'obbligo di avere un **domicilio digitale**"
-        ]},
-        { t: "tabella", titolo: "I formati giusti per conservare",
-          intest: ["Formato", "Uso", "Conservazione"],
-          righe: [
-            ["**PDF/A**", "Documenti definitivi", "Ottimo: nato per durare"],
-            ["**XML**", "Fattura elettronica", "Ottimo"],
-            ["**TIFF / JPG**", "Immagini, scansioni", "Buono"],
-            ["DOCX / XLSX", "Documenti di lavoro", "Solo finché si modificano"],
-            ["Formati di programmi particolari", "—", "Da evitare: rischio di non poterli più aprire"]
-          ]},
-        { t: "testo", titolo: "Organizzare le cartelle", punti: [
-          "Ricalcare il **titolario**: stessa struttura della carta",
-          "Non più di **3-4 livelli** di sottocartelle",
-          "Una cartella per pratica (= fascicolo digitale)",
-          "Niente cartelle «Varie», «Da sistemare», «Nuova cartella»",
-          "Cartelle condivise in rete, **non** sul desktop del singolo PC"
-        ]},
-        { t: "testo", titolo: "Dare il nome ai file", punti: [
-          "Data all'inizio in formato **AAAA-MM-GG**: così si ordinano da soli",
-          "Poi tipo di documento e soggetto",
-          "Esempio: **2026-10-07_Fattura_088_CartoleriaRossi.pdf**",
-          "Niente spazi, accenti o simboli strani: usare _ o -",
-          "Mai «documento1», «scansione», «definitivo_definitivo2»"
-        ]},
-        { t: "numeri", titolo: "Il backup: regola 3-2-1", voci: [
-          { num: "3", testo: "copie dei dati" },
-          { num: "2", testo: "supporti diversi (es. server + disco esterno)" },
-          { num: "1", testo: "copia fuori sede (cloud o altro edificio)" }
-        ], nota: "Backup **automatico** e periodico. Ogni tanto **provare il ripristino**: un backup mai verificato è solo una speranza." },
-        { t: "def", titolo: "La conservazione digitale", termine: "Conservazione a norma",
-          testo: "Il processo che garantisce nel tempo **integrità, autenticità e leggibilità** dei documenti informatici, secondo le **Linee guida AgID** in vigore dal 2022. Di solito ci si affida a un **conservatore** specializzato." },
-        { t: "testo", titolo: "Privacy e GDPR in ufficio", punti: [
-          "Il **Regolamento UE 2016/679** protegge i dati personali",
-          "Trattare solo i dati **necessari** (minimizzazione)",
-          "Accesso solo a chi è **autorizzato**",
-          "Password robuste, schermo bloccato quando ci si alza",
-          "Non lasciare documenti sulla scrivania o in stampante",
-          "Dati sanitari e giudiziari: **massima** cautela"
-        ]},
-        { t: "esercizio", titolo: "Esercizio al computer",
-          consegna: "Create sul PC un piccolo archivio digitale.",
-          punti: ["1. Una cartella principale «ARCHIVIO 2026»", "2. Le sottocartelle del titolario (Amministrazione, Personale, Contabilità, Clienti, Fornitori)", "3. Salvate 3 documenti di prova con nomi corretti", "4. Convertite un documento Word in PDF/A"],
-          soluzione: ["Esempio: ARCHIVIO 2026 › 3_Contabilita › 3.2_Fatture_passive › 2026-10-07_Fattura_088_CartoleriaRossi.pdf", "In Word: File › Salva con nome › PDF › Opzioni › «Conforme a PDF/A»"] },
-        { t: "quiz", domanda: "Quale firma equivale alla firma autografa?",
-          opzioni: ["Il nome scritto in fondo all'email", "La firma digitale qualificata", "Una scansione della propria firma"],
-          giusta: 1, spiega: "Solo la firma digitale (qualificata) ha lo stesso valore della firma a mano." },
-        { t: "quiz", domanda: "Qual è il nome di file più corretto?",
-          opzioni: ["scansione nuova.pdf", "2026-10-07_Contratto_Bianchi.pdf", "contratto DEFINITIVO (2).pdf"],
-          giusta: 1, spiega: "Data in formato AAAA-MM-GG, tipo di documento e soggetto, senza spazi." },
-        { t: "quiz", domanda: "La regola del backup 3-2-1 prevede…",
-          opzioni: ["3 copie, 2 supporti, 1 fuori sede", "3 password, 2 computer, 1 server", "un backup ogni 3 giorni"],
-          giusta: 0, spiega: "Tre copie, su due supporti diversi, di cui una conservata altrove." },
-        { t: "riepilogo", punti: [
-          "Il documento informatico ha pieno valore legale",
-          "Firma digitale = firma autografa; PEC = raccomandata A/R",
-          "PDF/A per conservare; nomi file con data AAAA-MM-GG",
-          "Backup 3-2-1 e rispetto del GDPR",
-          "Fine del Modulo 1 — Tecniche di archiviazione"
-        ]}
-      ]
+      titolo: "Archiviazione cartacea",
+      sintesi: "Fascicoli, raccoglitori, etichette e organizzazione degli spazi.",
+      testo: `
+## Il fascicolo
+Il **fascicolo** è la cartella che raccoglie tutti i documenti di **una stessa pratica**, dall'inizio alla fine. Esempio: «Contratto di fornitura Bianchi srl – 2026».
+- Sulla copertina: titolo, anno, eventuale codice di classificazione, data di apertura.
+- Dentro: i documenti in **ordine cronologico**.
+- A pratica conclusa si annota la **data di chiusura**.
+- Nessun foglio «volante»: ogni documento appartiene a un fascicolo.
+
+## I raccoglitori e gli strumenti
+- **Cartelline e camicie**: per i singoli fascicoli.
+- **Raccoglitori ad anelli**: per documenti consultati spesso (es. fatture dell'anno).
+- **Faldoni** (scatole d'archivio): per più fascicoli dello stesso tipo, soprattutto nel deposito.
+- **Cartelle sospese** negli schedari e cassettiere: accesso rapido in ufficio.
+- **Divisori** alfabetici, numerici o per mese.
+- **Armadi e scaffali**, anche compattabili (su binari) per risparmiare spazio.
+
+## Le etichette
+Un'etichetta ben fatta permette di trovare il contenitore giusto **senza aprirlo**.
+- Sul dorso: **anno**, **contenuto**, eventuale **codice**, numero progressivo del faldone.
+- Scrittura grande e leggibile, meglio stampata.
+- Stesso formato per tutti i contenitori.
+- **Colori** diversi per settore o per anno (es. blu = contabilità, verde = personale).
+
+## L'organizzazione degli spazi
+- I documenti più usati vicino alla scrivania, quelli meno usati più lontano.
+- Ripiani alti e bassi per il materiale consultato di rado.
+- Lasciare **spazio libero** per i nuovi documenti.
+- Locali **asciutti**, lontani da luce diretta, umidità e fonti di calore.
+- Scaffali staccati da pavimento e pareti; estintore nelle vicinanze.
+- Accesso consentito solo alle persone autorizzate.
+
+> Un **elenco di consistenza** (che cosa c'è in ogni armadio e faldone) appeso o salvato al computer fa risparmiare moltissimo tempo nelle ricerche.
+`
+    },
+    {
+      titolo: "Archiviazione digitale",
+      sintesi: "Cartelle informatiche, formati dei file e organizzazione dei documenti.",
+      testo: `
+Oggi la maggior parte dei documenti nasce già in formato digitale (email, PEC, fatture elettroniche, file di testo) oppure viene **scansionata**. Anche l'archivio digitale ha bisogno di ordine e di regole.
+
+## Le cartelle informatiche
+- La struttura delle cartelle deve **ricalcare** quella dell'archivio cartaceo (stesse categorie).
+- Non più di **3-4 livelli** di sottocartelle, per non perdersi.
+- Una cartella per ogni pratica, come un fascicolo digitale.
+- Evitare cartelle come «Varie», «Da sistemare», «Nuova cartella».
+- Salvare i documenti in cartelle **condivise** sul server o nel cloud aziendale, non sul desktop del singolo computer.
+
+Esempio di struttura:
+- ARCHIVIO 2026 › Amministrazione › Contratti
+- ARCHIVIO 2026 › Contabilità › Fatture ricevute
+- ARCHIVIO 2026 › Clienti › Bianchi srl
+
+## I formati dei file
+| Formato | Uso | Adatto a conservare? |
+| **PDF/A** | Documenti definitivi | Sì, è nato per durare nel tempo |
+| **PDF** | Documenti da inviare | Sì, se definitivi |
+| **XML** | Fattura elettronica | Sì |
+| **JPG / TIFF** | Fotografie e scansioni | Sì |
+| DOCX / XLSX | Documenti di lavoro, ancora da modificare | Solo finché si lavora |
+
+## Dare il nome ai file
+Il nome deve far capire il contenuto **senza aprire** il file.
+- Data all'inizio nel formato **AAAA-MM-GG**, così i file si ordinano da soli.
+- Poi il tipo di documento e il soggetto.
+- Niente spazi, accenti o simboli: usare il trattino basso _ o il trattino -.
+
+> Esempio corretto: **2026-11-03_Fattura_088_BianchiSrl.pdf** — da evitare: «scansione1.pdf», «documento definitivo (2).pdf».
+
+## Le scansioni
+- Risoluzione di **300 dpi**, salvataggio in **PDF**.
+- Controllare che il file sia leggibile e completo (tutte le pagine, nel verso giusto).
+- Dare subito il nome corretto e salvare nella cartella giusta.
+`
+    },
+    {
+      titolo: "Protocollazione dei documenti",
+      sintesi: "Registrazione, numerazione, datazione e tracciabilità.",
+      testo: `
+## Che cos'è il protocollo
+Il **registro di protocollo** è il registro in cui si annotano, in ordine progressivo, tutti i documenti **ricevuti e spediti**. Dà a ogni documento un **numero** e una **data** certi: è la sua «carta d'identità». Per le Pubbliche Amministrazioni è obbligatorio (DPR 445/2000); molte aziende lo adottano comunque per ordine e sicurezza.
+
+## La registrazione
+Per ogni documento si annotano:
+- **numero di protocollo**;
+- **data** di registrazione;
+- **mittente** (per i documenti in entrata) o **destinatario** (per quelli in uscita);
+- **oggetto**: breve, chiaro, completo;
+- data e numero del documento ricevuto, se presenti;
+- numero e descrizione degli **allegati**.
+
+## La numerazione
+- Il numero è **progressivo** e ricomincia da 1 ogni **1° gennaio**.
+- Un numero corrisponde a **un solo** documento.
+- Il numero non si cancella e non si riutilizza: gli errori si correggono con un **annullamento motivato**.
+
+## La datazione
+- Si protocolla **lo stesso giorno** in cui il documento arriva o parte.
+- La data di protocollo fa fede: dimostra **quando** il documento è entrato o uscito.
+
+## La tracciabilità
+Sul documento si appone la **segnatura** (timbro o etichetta con numero, data ed eventuale classificazione). In questo modo si può sempre sapere:
+- quando il documento è arrivato;
+- a chi è stato assegnato;
+- in quale fascicolo è stato archiviato.
+
+| N. | Data | E/U | Mittente / Destinatario | Oggetto |
+| 125 | 03/11/2026 | E | Cartoleria Rossi srl | Fattura n. 88 fornitura toner |
+| 126 | 03/11/2026 | U | Studio Bianchi | Invio contratto firmato di consulenza |
+| 127 | 04/11/2026 | E | Comune di Milazzo | Avviso rinnovo autorizzazione insegna |
+
+> Un buon oggetto: «Richiesta preventivo fornitura carta A4 – anno 2027». Un cattivo oggetto: «Richiesta».
+`
+    },
+    {
+      titolo: "Gestione dei documenti aziendali",
+      sintesi: "Archiviazione di fatture, DDT, ordini, contratti e documenti amministrativi.",
+      testo: `
+Ogni tipo di documento aziendale ha il suo modo di essere archiviato. Ecco i principali.
+
+## Fatture
+- Si tengono separate le **fatture emesse** (ai clienti) e le **fatture ricevute** (dai fornitori).
+- Ordine **numerico** per le emesse, **cronologico** o per fornitore per le ricevute.
+- La fattura elettronica è un file **XML** che passa dal Sistema di Interscambio (SdI) dell'Agenzia delle Entrate e va **conservata in digitale**.
+- Conservazione: **10 anni** (art. 2220 del Codice civile).
+
+## DDT (Documenti di trasporto)
+- Accompagnano la merce: vanno **controllati** al ricevimento (quantità, integrità) e firmati.
+- Si archiviano **insieme alla fattura** a cui si riferiscono, oppure in ordine cronologico per fornitore.
+- Conservazione: come le fatture, 10 anni.
+
+## Ordini
+- Ordini **ricevuti** dai clienti e ordini **inviati** ai fornitori, separati.
+- Ogni ordine si collega al **preventivo** che lo ha preceduto, al **DDT** e alla **fattura** che lo seguono.
+- Ordine numerico o per cliente/fornitore.
+
+## Contratti
+- Un fascicolo per ogni contratto, ordinato per **controparte** (cliente, fornitore, dipendente).
+- Annotare la **data di scadenza** e il preavviso per la disdetta.
+- Conservare l'**originale firmato** in un luogo sicuro e una copia digitale.
+- Conservazione: per tutta la durata e almeno **10 anni** dopo la scadenza.
+
+## Documenti amministrativi
+Comprendono: comunicazioni con banche e uffici pubblici, polizze assicurative, documenti del personale, autorizzazioni, certificati. Si archiviano **per argomento**, secondo il titolario dell'ufficio.
+
+| Documento | Ordinamento consigliato | Conservazione |
+| Fatture emesse | Numerico | 10 anni |
+| Fatture ricevute | Per fornitore o cronologico | 10 anni |
+| DDT | Con la fattura collegata | 10 anni |
+| Ordini | Numerico o per cliente/fornitore | 10 anni |
+| Contratti | Per controparte | Durata + 10 anni |
+
+> Il collegamento **preventivo → ordine → DDT → fattura** permette di ricostruire in pochi minuti tutta la storia di una fornitura.
+`
+    },
+    {
+      titolo: "Ricerca e recupero documentale",
+      sintesi: "Sistemi di indicizzazione, codifica e ricerca rapida.",
+      testo: `
+Archiviare serve a **ritrovare**. Un documento che non si trova è come un documento perso.
+
+## L'indicizzazione
+**Indicizzare** significa preparare degli strumenti che dicono **dove** si trova un documento.
+- **Rubrica o indice** alfabetico: collega un nome al numero della pratica.
+- **Elenco di consistenza**: descrive il contenuto di ogni armadio, scaffale e faldone.
+- **Registro di protocollo**: permette di risalire a un documento conoscendo data, mittente o oggetto.
+- **Schede o tabelle** al computer (anche un semplice foglio di calcolo) con colonne: numero, data, soggetto, oggetto, collocazione.
+
+## La codifica
+Assegnare un **codice** a ogni documento o pratica rende la ricerca univoca.
+- Codice cliente o fornitore (es. CL-0254).
+- Codice di classificazione del titolario (es. 3.2 = Contabilità, Fatture ricevute).
+- Numero di protocollo.
+- Lo stesso codice si scrive sul fascicolo cartaceo e nel nome del file digitale.
+
+## La ricerca rapida nell'archivio digitale
+- Ricerca per **nome del file**: funziona bene se i nomi sono scritti con regole precise.
+- Ricerca per **data** o per tipo di file.
+- Ricerca del **testo contenuto** nei documenti (possibile nei PDF «ricercabili»).
+- **Parole chiave** e informazioni aggiuntive (metadati) inserite nei programmi di gestione documentale.
+
+## Quando un documento esce dall'archivio
+Chi preleva un fascicolo deve lasciare traccia: una **scheda di uscita** (o un registro dei prestiti) con nome, data e fascicolo prelevato. Al ritorno il documento va rimesso **esattamente** al suo posto.
+
+> Regola d'oro: un documento si cerca **una volta sola** se è stato archiviato bene.
+`
+    },
+    {
+      titolo: "Sicurezza e conservazione",
+      sintesi: "Privacy, GDPR, backup, accessi e conservazione digitale a norma.",
+      testo: `
+## Privacy e GDPR
+Il **Regolamento UE 2016/679 (GDPR)** tutela i dati personali: nomi, indirizzi, codici fiscali, dati bancari, dati sulla salute. Chi archivia documenti deve:
+- trattare solo i dati **necessari** allo scopo;
+- conservarli solo per il **tempo necessario**;
+- proteggerli da perdita, furto e accessi non autorizzati;
+- prestare la **massima cautela** con i dati sanitari e giudiziari.
+
+## Il controllo degli accessi
+- Armadi e stanze dell'archivio **chiusi a chiave**.
+- Al computer: ogni persona ha il proprio **utente e password**.
+- Ogni dipendente vede solo le cartelle che gli servono per il lavoro.
+- Password robuste, cambiate periodicamente, mai scritte su foglietti.
+
+## Il backup
+Il **backup** è la copia di sicurezza dei dati digitali. Si segue la **regola 3-2-1**:
+- **3** copie dei dati;
+- su **2** supporti diversi (ad esempio server e disco esterno);
+- di cui **1** conservata fuori sede (cloud o altro edificio).
+
+Il backup deve essere **automatico** e periodico; ogni tanto va fatta una **prova di ripristino** per essere sicuri che funzioni.
+
+## La conservazione digitale a norma
+Non basta salvare i file: alcuni documenti informatici (ad esempio le fatture elettroniche) vanno **conservati a norma**, cioè con un procedimento che ne garantisce nel tempo:
+- **integrità**: il documento non è stato modificato;
+- **autenticità**: proviene davvero da chi lo ha firmato;
+- **leggibilità**: si potrà aprire anche tra molti anni.
+
+La conservazione segue le **Linee guida AgID** in vigore dal 2022 e di solito si affida a un **conservatore** specializzato.
+
+> Carta: nemici sono umidità, fuoco e disordine. Digitale: nemici sono guasti, virus e password deboli.
+`
+    },
+    {
+      titolo: "Scarto e aggiornamento dell'archivio",
+      sintesi: "Tempi di conservazione, eliminazione autorizzata e aggiornamento documentale.",
+      testo: `
+## I tempi di conservazione
+Non tutti i documenti vanno conservati per sempre. Ogni tipo ha il suo tempo, stabilito dalla legge o dalle regole interne.
+
+| Documento | Conservazione |
+| Fatture, DDT, libri e scritture contabili | 10 anni (art. 2220 c.c.) |
+| Corrispondenza commerciale | 10 anni |
+| Contratti | Durata del contratto + 10 anni |
+| Documenti del personale | Lunga: verificare con il consulente del lavoro |
+| Atto costitutivo, statuto, verbali di assemblea | Per sempre |
+| Bozze, copie di lavoro, pubblicità ricevuta | Fino a fine utilità |
+
+Lo strumento che elenca questi tempi si chiama **massimario di scarto**.
+
+## L'eliminazione autorizzata (scarto)
+Lo **scarto** è l'eliminazione **controllata** dei documenti che non devono più essere conservati.
+- Si decide in base al massimario, mai «a occhio».
+- Si compila un **elenco** dei documenti da eliminare, approvato dal responsabile.
+- Nelle Pubbliche Amministrazioni serve l'**autorizzazione** della Soprintendenza archivistica.
+- I documenti con dati personali si distruggono con un **distruggidocumenti** o tramite una ditta specializzata: mai nel cestino.
+- Anche i file digitali vanno cancellati in modo sicuro, compresi i backup.
+
+## L'aggiornamento dell'archivio
+Un archivio è vivo e va tenuto aggiornato:
+- inserire subito i nuovi documenti nel fascicolo giusto;
+- chiudere i fascicoli delle pratiche concluse;
+- spostare periodicamente le pratiche chiuse nel **deposito**;
+- aggiornare l'elenco di consistenza e gli indici;
+- sostituire i documenti superati con le versioni nuove (es. moduli, listini, procedure), indicando la data di aggiornamento.
+
+> Conservare troppo è un errore quanto conservare troppo poco: occupa spazio, rallenta le ricerche e può violare la privacy.
+`
     }
     ]
   },
@@ -453,555 +403,457 @@ const CORSO = {
     n: 2,
     titolo: "Tecniche di segreteria",
     colore: "#7a2e3a",
-    lezioni: [
-    /* ---------------- LEZIONE 5 ---------------- */
+    argomenti: [
     {
-      n: 5,
-      titolo: "La figura professionale e l'organizzazione del lavoro",
-      sottotitolo: "Ruolo, competenze, tempo, agenda e priorità",
-      obiettivi: [
-        "Conoscere compiti e competenze dell'addetto di segreteria",
-        "Organizzare la propria postazione di lavoro",
-        "Gestire agenda, scadenze e priorità",
-        "Usare tecniche semplici di gestione del tempo"
-      ],
-      scaletta: [
-        ["0:00 – 0:20", "Presentazione del Modulo 2"],
-        ["0:20 – 1:30", "Ruolo, compiti, competenze, deontologia"],
-        ["1:30 – 1:45", "Pausa"],
-        ["1:45 – 2:45", "Postazione, agenda, scadenzario, priorità"],
-        ["2:45 – 3:35", "Esercitazione: pianificare una settimana"],
-        ["3:35 – 4:00", "Quiz e riepilogo"]
-      ],
-      slide: [
-        { t: "def", titolo: "Chi è l'addetto di segreteria", termine: "Addetto amministrativo segretariale",
-          testo: "Il professionista che **organizza, coordina e supporta** il lavoro di un ufficio: gestisce comunicazioni, documenti, agenda e rapporti con il pubblico. È il **punto di riferimento** dell'ufficio." },
-        { t: "testo", titolo: "I compiti principali", punti: [
-          "Accoglienza di visitatori e clienti",
-          "Gestione di **telefono**, **posta** ed **email**",
-          "Tenuta dell'**agenda** e degli appuntamenti",
-          "Redazione di lettere, comunicazioni e verbali",
-          "**Protocollo** e **archivio**",
-          "Organizzazione di riunioni e trasferte",
-          "Semplici adempimenti amministrativi"
-        ]},
-        { t: "due", titolo: "Le competenze",
-          sx: { titolo: "Competenze tecniche", punti: ["Videoscrittura e foglio di calcolo", "Posta elettronica e PEC", "Archiviazione", "Scrittura corretta", "Nozioni di base amministrative"] },
-          dx: { titolo: "Competenze personali", punti: ["Cortesia e pazienza", "Organizzazione", "Riservatezza", "Capacità di ascolto", "Problem solving", "Lavoro in squadra"] } },
-        { t: "testo", titolo: "Deontologia: le regole di comportamento", punti: [
-          "**Riservatezza** assoluta su ciò che si vede e si sente",
-          "**Lealtà** verso l'organizzazione e i colleghi",
-          "**Imparzialità**: stessa cortesia con tutti",
-          "**Puntualità** e affidabilità",
-          "Aspetto e linguaggio **adeguati** al contesto"
-        ]},
-        { t: "testo", titolo: "La postazione di lavoro", punti: [
-          "Scrivania **sgombra**: solo ciò che serve ora",
-          "Vaschette: **da fare** · **in attesa** · **da archiviare**",
-          "Telefono e agenda a portata di mano, a sinistra se si scrive con la destra",
-          "Schermo all'altezza degli occhi, a un braccio di distanza",
-          "A fine giornata: scrivania in ordine, documenti riservati sotto chiave"
-        ]},
-        { t: "testo", titolo: "L'agenda", punti: [
-          "**Una sola** agenda (cartacea o digitale), non foglietti sparsi",
-          "Per ogni appuntamento: **chi**, **quando**, **dove**, **perché**, recapito",
-          "Lasciare **margini** tra un impegno e l'altro",
-          "Agenda **condivisa** con il responsabile (es. Google Calendar, Outlook)",
-          "Conferma degli appuntamenti il giorno prima"
-        ]},
-        { t: "testo", titolo: "Lo scadenzario", punti: [
-          "Elenco di tutte le **scadenze** ricorrenti e straordinarie",
-          "Pagamenti, rinnovi, dichiarazioni, contratti, revisioni",
-          "Promemoria con **anticipo** (es. 15 giorni e 3 giorni prima)",
-          "Si controlla **ogni mattina**",
-          "Chi riceve un compito ha anche una **data**"
-        ]},
-        { t: "matrice", titolo: "La matrice delle priorità (Eisenhower)",
-          colonne: ["URGENTE", "NON URGENTE"], righe: ["IMPORTANTE", "NON IMPORTANTE"],
-          celle: [
-            [{ titolo: "① Fallo subito", testo: "Scadenza di oggi, emergenza" }, { titolo: "② Pianificalo", testo: "Progetti, formazione" }],
-            [{ titolo: "③ Delegalo", testo: "Molte telefonate, interruzioni" }, { titolo: "④ Eliminalo", testo: "Attività inutili" }]
-          ]},
-        { t: "testo", titolo: "Consigli per gestire il tempo", punti: [
-          "Iniziare la giornata con la **lista delle cose da fare**",
-          "Fare per prime le attività **difficili**, quando si è più freschi",
-          "Raggruppare attività simili (es. tutte le telefonate insieme)",
-          "Limitare le **interruzioni**: controllare la posta a orari fissi",
-          "Saper dire **«no»** con garbo, o «sì, ma dopo le 11»"
-        ]},
-        { t: "esercizio", titolo: "Esercizio · Applica la matrice",
-          consegna: "In quale quadrante metteresti queste attività?",
-          punti: ["a) Il direttore chiede un documento per la riunione tra un'ora", "b) Riordinare l'archivio del 2024", "c) Un rappresentante telefona senza appuntamento", "d) Scadenza del pagamento F24 oggi", "e) Leggere pubblicità arrivata per email"],
-          soluzione: ["a) ① Fallo subito", "b) ② Pianificalo", "c) ③ Delegalo o rimandalo", "d) ① Fallo subito", "e) ④ Eliminalo"] },
-        { t: "esercizio", titolo: "Esercizio · Pianifica la settimana",
-          consegna: "Inserisci in un'agenda settimanale (lun-ven, 9-13 e 15-18) questi impegni, lasciando i margini necessari.",
-          punti: ["Riunione di reparto (2 ore) · 4 appuntamenti con clienti (1 ora) · Protocollo posta ogni mattina (30 min) · Preparazione verbale riunione (1 ora) · Ordine di cancelleria (30 min)"],
-          soluzione: ["Non c'è una sola soluzione giusta. Verificare che:", "– il protocollo sia ogni giorno alla stessa ora", "– il verbale sia dopo la riunione, entro 1-2 giorni", "– tra gli appuntamenti ci siano almeno 15 minuti di margine"] },
-        { t: "quiz", domanda: "Un'attività importante ma non urgente va…",
-          opzioni: ["fatta subito", "pianificata", "eliminata"],
-          giusta: 1, spiega: "È il quadrante ②: va messa in agenda con una data, prima che diventi urgente." },
-        { t: "quiz", domanda: "Qual è la regola più importante per l'agenda?",
-          opzioni: ["Usarne tante, una per argomento", "Usarne una sola, completa e aggiornata", "Scrivere solo gli appuntamenti importanti"],
-          giusta: 1, spiega: "Più agende = appuntamenti dimenticati o sovrapposti." },
-        { t: "riepilogo", punti: [
-          "L'addetto di segreteria è il punto di riferimento dell'ufficio",
-          "Servono competenze tecniche e personali, e tanta riservatezza",
-          "Una sola agenda, uno scadenzario controllato ogni giorno",
-          "Matrice delle priorità: fai, pianifica, delega, elimina"
-        ]}
-      ]
+      titolo: "Introduzione alla segreteria",
+      sintesi: "Ruolo, funzioni, mansioni e responsabilità dell'addetto alla segreteria.",
+      testo: `
+## Il ruolo
+L'**addetto alla segreteria** è il punto di riferimento dell'ufficio: organizza, coordina e supporta il lavoro dei responsabili e dei colleghi, ed è spesso la **prima persona** con cui clienti e fornitori entrano in contatto. Per questo rappresenta l'immagine dell'azienda.
+
+## Le funzioni
+- **Comunicazione**: telefono, posta, email, rapporti con il pubblico.
+- **Organizzazione**: agenda, appuntamenti, riunioni, scadenze.
+- **Gestione documentale**: redazione di documenti, protocollo, archivio.
+- **Supporto amministrativo**: preventivi, ordini, fatture, documenti di trasporto.
+
+## Le mansioni quotidiane
+- Accogliere i visitatori e rispondere al telefono.
+- Ricevere, smistare e spedire la posta e le email.
+- Tenere aggiornata l'agenda del responsabile.
+- Scrivere lettere, comunicazioni interne, verbali.
+- Protocollare e archiviare i documenti.
+- Controllare le scadenze e segnalarle in tempo.
+
+## Le responsabilità
+- **Riservatezza**: ciò che si vede e si sente in ufficio non esce dall'ufficio.
+- **Precisione**: un errore in una data, un importo o un nome può costare caro.
+- **Affidabilità e puntualità**: gli altri contano sul lavoro della segreteria.
+- **Cortesia e imparzialità**: stesso rispetto per tutti.
+
+## Le competenze richieste
+| Competenze tecniche | Competenze personali |
+| Uso del computer, videoscrittura, foglio di calcolo | Cortesia e pazienza |
+| Posta elettronica e PEC | Capacità di organizzazione |
+| Scrittura corretta | Riservatezza |
+| Tecniche di archiviazione | Capacità di ascolto |
+| Nozioni amministrative di base | Lavoro di squadra e problem solving |
+`
     },
-    /* ---------------- LEZIONE 6 ---------------- */
     {
-      n: 6,
-      titolo: "Comunicazione, telefono e accoglienza",
-      sottotitolo: "Parlare, ascoltare, accogliere, gestire i reclami",
-      obiettivi: [
-        "Conoscere gli elementi della comunicazione",
-        "Gestire telefonate in entrata e in uscita",
-        "Accogliere i visitatori in modo professionale",
-        "Affrontare un cliente insoddisfatto"
-      ],
-      scaletta: [
-        ["0:00 – 0:15", "Ripasso della lezione 5"],
-        ["0:15 – 1:20", "La comunicazione: verbale, paraverbale, non verbale"],
-        ["1:20 – 1:35", "Pausa"],
-        ["1:35 – 2:40", "Telefono, messaggi, accoglienza, reclami"],
-        ["2:40 – 3:35", "Simulazioni a coppie (giochi di ruolo)"],
-        ["3:35 – 4:00", "Quiz e riepilogo"]
-      ],
-      slide: [
-        { t: "flusso", titolo: "Gli elementi della comunicazione", passi: [
-          { titolo: "Emittente", testo: "Chi comunica" },
-          { titolo: "Messaggio", testo: "Che cosa si dice" },
-          { titolo: "Canale", testo: "Voce, telefono, email, lettera" },
-          { titolo: "Ricevente", testo: "Chi riceve" },
-          { titolo: "Feedback", testo: "La risposta: conferma che il messaggio è arrivato" }
-        ], nota: "**Disturbi** possono rovinare tutto: rumore, fretta, pregiudizi, parole difficili." },
-        { t: "schede", titolo: "Tre livelli di comunicazione", voci: [
-          { ico: "fumetto", titolo: "Verbale", testo: "Le **parole**: lessico, chiarezza, frasi brevi" },
-          { ico: "voce", titolo: "Paraverbale", testo: "**Come** si dice: tono, volume, velocità, pause" },
-          { ico: "persona", titolo: "Non verbale", testo: "Il **corpo**: sorriso, sguardo, postura, gesti" }
-        ]},
-        { t: "testo", titolo: "L'ascolto attivo", punti: [
-          "Lasciar **finire** l'interlocutore, senza interrompere",
-          "Mostrare attenzione: «sì», «capisco», cenni del capo",
-          "**Riformulare**: «Se ho capito bene, lei chiede…»",
-          "Fare **domande** per chiarire",
-          "Prendere **appunti**"
-        ]},
-        { t: "testo", titolo: "Rispondere al telefono", punti: [
-          "Rispondere entro **3 squilli**",
-          "Formula: **saluto + nome dell'azienda + proprio nome + offerta di aiuto**",
-          "«Buongiorno, Studio Rossi, sono Anna, come posso aiutarla?»",
-          "**Sorridere**: il sorriso si sente nella voce",
-          "Dare del **Lei**, salvo diversa indicazione",
-          "Avere sempre **carta e penna** a portata di mano"
-        ]},
-        { t: "testo", titolo: "Filtrare e trasferire le chiamate", punti: [
-          "Chiedere **chi parla** e **il motivo** della chiamata",
-          "«Attenda un momento, verifico se il dottore è disponibile»",
-          "Prima di trasferire, **annunciare** la chiamata al collega",
-          "Se il collega non può: proporre di **richiamare** o di lasciare un messaggio",
-          "Mai lasciare in attesa senza notizie per più di 30-40 secondi"
-        ]},
-        { t: "testo", titolo: "Il messaggio telefonico completo", punti: [
-          "**Per** chi è il messaggio",
-          "**Data e ora** della chiamata",
-          "**Chi** ha chiamato (nome, azienda)",
-          "**Recapito** per richiamare (ripetere il numero!)",
-          "**Motivo** in breve",
-          "**Azione** richiesta: richiamare, attendere, inviare documento",
-          "**Firma** di chi ha preso il messaggio"
-        ]},
-        { t: "testo", titolo: "La telefonata in uscita", punti: [
-          "**Prepararla**: scopo, dati, documenti sottomano",
-          "Presentarsi subito: nome e azienda",
-          "Chiedere se è **un buon momento** per parlare",
-          "Andare al punto, con cortesia",
-          "Concludere **riassumendo** gli accordi presi",
-          "Annotare l'esito"
-        ]},
-        { t: "testo", titolo: "Accogliere i visitatori", punti: [
-          "**Alzare lo sguardo** e salutare subito, anche se si è al telefono (con un cenno)",
-          "Chiedere nome e motivo della visita",
-          "Avvisare la persona attesa",
-          "Far accomodare, offrire acqua o un caffè se previsto",
-          "Se l'attesa si allunga: **aggiornare** il visitatore",
-          "Accompagnare, non indicare soltanto la strada"
-        ]},
-        { t: "testo", titolo: "Il cliente insoddisfatto", punti: [
-          "**Ascoltare** fino in fondo, senza interrompere",
-          "Restare **calmi**: non è un attacco personale",
-          "Mostrare **comprensione**: «Capisco il suo disagio»",
-          "**Non promettere** ciò che non si può mantenere",
-          "Proporre una **soluzione** o un tempo preciso per averla",
-          "Registrare il reclamo e **richiamare** come promesso"
-        ]},
-        { t: "due", titolo: "Frasi da evitare e da usare",
-          sx: { titolo: "Da evitare", punti: ["«Non è compito mio»", "«Non so niente»", "«Deve calmarsi!»", "«Richiami più tardi»"] },
-          dx: { titolo: "Da usare", punti: ["«Verifico subito chi può aiutarla»", "«Mi informo e la richiamo entro le 12»", "«Capisco, vediamo insieme»", "«Posso farla richiamare? A che numero?»"] } },
-        { t: "esercizio", titolo: "Gioco di ruolo a coppie",
-          consegna: "Uno fa il cliente, l'altro l'addetto di segreteria. Poi ci si scambia.",
-          punti: ["1) Un cliente chiama per parlare con il titolare, che è in riunione", "2) Un fornitore arriva senza appuntamento", "3) Un cliente telefona arrabbiato perché la fattura è sbagliata"],
-          soluzione: ["Osservare: formula di risposta, tono di voce, ascolto, completezza del messaggio, soluzione proposta, saluto finale."] },
-        { t: "quiz", domanda: "Che cosa NON può mancare in un messaggio telefonico?",
-          opzioni: ["Il colore della penna", "Il recapito per richiamare", "Il nome del centralino"],
-          giusta: 1, spiega: "Senza recapito il messaggio è inutile; va anche ripetuto al chiamante per verifica." },
-        { t: "quiz", domanda: "Il tono e la velocità della voce sono comunicazione…",
-          opzioni: ["verbale", "paraverbale", "non verbale"],
-          giusta: 1, spiega: "Il paraverbale riguarda il come si dicono le cose: tono, volume, ritmo, pause." },
-        { t: "riepilogo", punti: [
-          "Si comunica con parole, voce e corpo",
-          "Al telefono: formula completa, sorriso, messaggi precisi",
-          "Accoglienza: salutare subito e aggiornare chi attende",
-          "Reclami: ascolto, calma, soluzione, richiamata"
-        ]}
-      ]
+      titolo: "Organizzazione dell'ufficio",
+      sintesi: "Gestione degli spazi, strumenti di lavoro, materiali e procedure operative.",
+      testo: `
+## La gestione degli spazi
+- La **postazione** di segreteria deve essere visibile all'ingresso e facilmente raggiungibile.
+- Scrivania **sgombra**: sopra solo ciò che serve in quel momento.
+- Vaschette o cartelline per separare: **da fare**, **in attesa**, **da archiviare**.
+- Telefono, agenda e materiale di uso frequente a portata di mano.
+- Schermo all'altezza degli occhi, a circa un braccio di distanza; buona illuminazione.
+- A fine giornata: scrivania in ordine e documenti riservati chiusi a chiave.
+
+## Gli strumenti di lavoro
+- **Computer** con programmi di videoscrittura, foglio di calcolo, posta elettronica e calendario.
+- **Telefono** e centralino (trasferimento, attesa, conferenza).
+- **Stampante multifunzione**: stampa, fotocopia, scansione.
+- **Distruggidocumenti**.
+- Eventuali programmi gestionali (protocollo, contabilità, gestione clienti).
+
+## I materiali
+- Cancelleria: carta, buste, penne, cucitrice, graffette, evidenziatori, post-it.
+- Materiale d'archivio: cartelline, raccoglitori, faldoni, etichette.
+- Carta intestata e buste intestate.
+- Toner e carta di scorta.
+
+Conviene tenere un **elenco delle scorte** e riordinare **prima** che il materiale finisca.
+
+## Le procedure operative
+Una **procedura** descrive passo per passo come si svolge un'attività ricorrente, in modo che chiunque possa farla allo stesso modo. Esempi:
+- come si protocolla la posta in arrivo;
+- come si risponde al telefono e si prendono i messaggi;
+- come si prepara una riunione;
+- come si apre e si chiude l'ufficio.
+
+> Le procedure scritte sono preziose quando un collega è assente o arriva una persona nuova.
+`
     },
-    /* ---------------- LEZIONE 7 ---------------- */
     {
-      n: 7,
-      titolo: "La corrispondenza commerciale",
-      sottotitolo: "Lettera, email professionale e PEC",
-      obiettivi: [
-        "Conoscere la struttura della lettera commerciale",
-        "Scrivere email professionali chiare ed efficaci",
-        "Usare le formule di apertura e di chiusura corrette",
-        "Gestire la posta in entrata e in uscita"
-      ],
-      scaletta: [
-        ["0:00 – 0:15", "Ripasso della lezione 6"],
-        ["0:15 – 1:20", "La lettera commerciale: parti e impaginazione"],
-        ["1:20 – 1:35", "Pausa"],
-        ["1:35 – 2:30", "Stile, formule, email e PEC"],
-        ["2:30 – 3:35", "Esercitazione: scrivere lettere ed email"],
-        ["3:35 – 4:00", "Quiz e riepilogo"]
-      ],
-      slide: [
-        { t: "lettera", titolo: "Le parti della lettera commerciale" },
-        { t: "testo", titolo: "Il corpo della lettera: tre parti", punti: [
-          "**Introduzione**: perché si scrive (« Facendo seguito alla Vs. richiesta del… »)",
-          "**Sviluppo**: i fatti, le informazioni, le proposte",
-          "**Conclusione**: che cosa si chiede o si propone ora",
-          "Un **paragrafo** per ogni argomento",
-          "Frasi brevi: massimo 20-25 parole"
-        ]},
-        { t: "tabella", titolo: "Formule di apertura e chiusura",
-          intest: ["Destinatario", "Apertura", "Chiusura"],
-          righe: [
-            ["Azienda / ufficio", "Spett.le Ditta… / Gentili Signori,", "Distinti saluti"],
-            ["Persona nota", "Gentile Sig.ra Rossi,", "Cordiali saluti"],
-            ["Autorità, ente", "Egregio Sig. Sindaco,", "Con osservanza / Distinti saluti"],
-            ["Professionista", "Gentile Dott. Bianchi,", "Cordiali saluti"]
-          ]},
-        { t: "testo", titolo: "Lo stile della corrispondenza", punti: [
-          "**Chiaro**: una idea per frase",
-          "**Cortese** ma non servile",
-          "**Preciso**: date, numeri, importi esatti",
-          "**Sintetico**: dire tutto, ma niente di più",
-          "Evitare il «burocratese»: «in relazione a quanto in oggetto…»",
-          "**Rileggere sempre** prima di inviare"
-        ]},
-        { t: "tabella", titolo: "Abbreviazioni d'uso comune",
-          intest: ["Sigla", "Significato"],
-          righe: [
-            ["Spett.le", "Spettabile"],
-            ["Vs. / Ns.", "Vostro / Nostro"],
-            ["c.a.", "Alla cortese attenzione"],
-            ["p.c.", "Per conoscenza"],
-            ["All.", "Allegato/i"],
-            ["c.m. / u.s.", "Corrente mese / Ultimo scorso"],
-            ["p.p.", "Per procura"]
-          ]},
-        { t: "testo", titolo: "I principali tipi di lettera", punti: [
-          "**Richiesta** di informazioni o di preventivo",
-          "**Offerta** e preventivo",
-          "**Ordine** e conferma d'ordine",
-          "**Reclamo** e risposta al reclamo",
-          "**Sollecito** di pagamento",
-          "**Comunicazioni** (cambio sede, orari, auguri)"
-        ]},
-        { t: "testo", titolo: "L'email professionale", punti: [
-          "**Oggetto** sempre presente e specifico",
-          "Saluto iniziale e chiusura, come in una lettera",
-          "Testo breve: se serve scorrere troppo, meglio un allegato",
-          "**Firma** completa: nome, ruolo, azienda, telefono",
-          "Allegati con nomi chiari, in PDF; citarli nel testo",
-          "Rispondere entro **24 ore**, anche solo per dire «ricevuto»"
-        ]},
-        { t: "testo", titolo: "A, CC e CCN", punti: [
-          "**A**: il destinatario che deve agire",
-          "**CC** (copia conoscenza): chi deve essere informato",
-          "**CCN** (copia nascosta): per invii a molti senza mostrare gli indirizzi — tutela la privacy",
-          "«**Rispondi a tutti**» solo se serve davvero a tutti",
-          "Controllare i destinatari **prima** di premere Invia"
-        ]},
-        { t: "testo", titolo: "Errori da non fare", punti: [
-          "SCRIVERE TUTTO IN MAIUSCOLO (equivale a urlare)",
-          "Emoticon e abbreviazioni da chat",
-          "Dimenticare l'allegato annunciato",
-          "Inoltrare catene di messaggi senza togliere le parti inutili",
-          "Scrivere quando si è arrabbiati: meglio aspettare un'ora"
-        ]},
-        { t: "esercizio", titolo: "Esercizio · Scrivi una lettera",
-          consegna: "Scrivi una lettera di richiesta preventivo.",
-          punti: ["Mittente: Studio Rossi, Via Roma 10, Milazzo", "Destinatario: Cartoleria Bianchi srl", "Richiesta: 50 risme di carta A4 e 20 toner, consegna entro fine mese"],
-          soluzione: ["Verificare: intestazione, luogo e data, destinatario, oggetto chiaro (es. «Richiesta preventivo materiale di cancelleria»), apertura «Spett.le», richiesta precisa con quantità e termini, chiusura «Distinti saluti», firma."] },
-        { t: "esercizio", titolo: "Esercizio · Riscrivi l'email",
-          consegna: "Migliora questa email.",
-          punti: ["Oggetto: (vuoto)", "«ciao allora x la fattura NON VA BENE rimandatela grz»"],
-          soluzione: ["Oggetto: Fattura n. 88 del 01/10/2026 – richiesta di correzione", "«Gentili Signori, abbiamo ricevuto la fattura in oggetto e rileviamo che l'importo non corrisponde all'ordine n. 45. Vi chiediamo cortesemente di inviarci una nota di credito e la fattura corretta. Cordiali saluti, Anna Verdi – Studio Rossi – tel. …»"] },
-        { t: "quiz", domanda: "Che cosa significa «c.a.»?",
-          opzioni: ["Con allegato", "Alla cortese attenzione", "Corrente anno"],
-          giusta: 1, spiega: "Si usa per indicare la persona a cui è indirizzata una lettera inviata a un'azienda." },
-        { t: "quiz", domanda: "Devo scrivere a 40 clienti diversi. Dove metto gli indirizzi?",
-          opzioni: ["Tutti in «A»", "Tutti in «CC»", "In «CCN»"],
-          giusta: 2, spiega: "La copia nascosta evita di mostrare a tutti gli indirizzi degli altri: rispetta la privacy." },
-        { t: "riepilogo", punti: [
-          "La lettera ha parti fisse: intestazione, oggetto, corpo, firma, allegati",
-          "Stile chiaro, cortese, preciso e sintetico",
-          "Email: oggetto, firma completa, attenzione ad A / CC / CCN",
-          "Rileggere sempre prima di inviare"
-        ]}
-      ]
+      titolo: "Comunicazione aziendale",
+      sintesi: "Comunicazione verbale, scritta, telefonica e digitale.",
+      testo: `
+## Gli elementi della comunicazione
+Ogni comunicazione ha un **emittente** (chi parla), un **messaggio** (che cosa dice), un **canale** (voce, telefono, lettera, email) e un **ricevente** (chi ascolta). Il **feedback**, cioè la risposta, conferma che il messaggio è arrivato. I **disturbi** (rumore, fretta, parole difficili, pregiudizi) possono rovinare la comunicazione.
+
+## La comunicazione verbale
+Avviene a voce, di persona. Conta non solo **che cosa** si dice, ma anche **come**:
+- **verbale**: le parole, che devono essere chiare e semplici;
+- **paraverbale**: tono, volume, velocità, pause;
+- **non verbale**: sorriso, sguardo, postura, gesti.
+
+L'**ascolto attivo** è fondamentale: lasciar finire l'interlocutore, mostrare attenzione, riformulare («Se ho capito bene, lei chiede…»), fare domande per chiarire.
+
+## La comunicazione scritta
+Lettere, comunicazioni interne, circolari, verbali. Deve essere:
+- **chiara**: un'idea per frase;
+- **precisa**: date, numeri e importi esatti;
+- **sintetica**: dire tutto, ma niente di più;
+- **corretta**: senza errori di grammatica e ortografia;
+- **cortese** nel tono.
+
+## La comunicazione telefonica
+Al telefono manca il linguaggio del corpo: la **voce** deve trasmettere disponibilità e professionalità. Si sorride anche al telefono, perché il sorriso «si sente».
+
+## La comunicazione digitale
+Email, PEC, messaggi, videochiamate. È veloce, ma richiede le stesse regole della scrittura formale: oggetto chiaro, saluti, firma completa, attenzione ai destinatari.
+
+> Prima di comunicare chiedersi sempre: **a chi** scrivo o parlo, **che cosa** voglio ottenere, **qual è** il canale più adatto.
+`
     },
-    /* ---------------- LEZIONE 8 ---------------- */
     {
-      n: 8,
-      titolo: "Riunioni, eventi e trasferte",
-      sottotitolo: "Organizzare, verbalizzare, prenotare",
-      obiettivi: [
-        "Organizzare una riunione dalla convocazione al verbale",
-        "Redigere ordine del giorno e verbale",
-        "Organizzare un piccolo evento",
-        "Pianificare una trasferta e gestire la nota spese"
-      ],
-      scaletta: [
-        ["0:00 – 0:15", "Ripasso della lezione 7"],
-        ["0:15 – 1:20", "La riunione: prima, durante, dopo · il verbale"],
-        ["1:20 – 1:35", "Pausa"],
-        ["1:35 – 2:35", "Eventi e trasferte · nota spese"],
-        ["2:35 – 3:35", "Simulazione: riunione con verbale"],
-        ["3:35 – 4:00", "Quiz e riepilogo"]
-      ],
-      slide: [
-        { t: "flusso", titolo: "Le tre fasi di una riunione", passi: [
-          { titolo: "Prima", testo: "Scopo, partecipanti, sala, convocazione con l'ordine del giorno" },
-          { titolo: "Durante", testo: "Firme di presenza, assistenza, appunti su decisioni e compiti" },
-          { titolo: "Dopo", testo: "Verbale, invio ai partecipanti, scadenze in agenda, archivio" }
-        ]},
-        { t: "testo", titolo: "Prima della riunione", punti: [
-          "Definire **scopo**, **partecipanti**, **data**, **durata**",
-          "Verificare le **disponibilità** (agenda condivisa, sondaggio)",
-          "Prenotare la **sala** o il collegamento online",
-          "Inviare la **convocazione** con l'ordine del giorno",
-          "Preparare documenti, proiettore, acqua, cartellini",
-          "Il giorno prima: **conferma** ai partecipanti"
-        ]},
-        { t: "testo", titolo: "La convocazione", punti: [
-          "**Chi** convoca",
-          "**Data, ora** di inizio e di fine",
-          "**Luogo** (o link per la riunione online)",
-          "**Ordine del giorno**",
-          "Documenti da leggere **prima**",
-          "Richiesta di **conferma** della presenza"
-        ]},
-        { t: "def", titolo: "L'ordine del giorno", termine: "Ordine del giorno (O.d.G.)",
-          testo: "L'elenco **numerato** degli argomenti da trattare, nell'ordine in cui saranno discussi. Di solito si chiude con «**Varie ed eventuali**»." },
-        { t: "testo", titolo: "Durante la riunione", punti: [
-          "Accogliere i partecipanti, raccogliere le **firme di presenza**",
-          "Controllare che tutto funzioni (proiettore, audio, collegamento)",
-          "Prendere **appunti** per il verbale",
-          "Annotare **decisioni**, **compiti** e **scadenze**",
-          "Discreta assistenza: copie, telefonate, ospiti"
-        ]},
-        { t: "testo", titolo: "Il verbale", punti: [
-          "**Intestazione**: tipo di riunione, data, ora, luogo",
-          "**Presenti** e assenti; chi presiede e chi verbalizza",
-          "Per ogni punto dell'O.d.G.: sintesi della discussione e **decisioni**",
-          "Eventuali **votazioni** con l'esito",
-          "Ora di **chiusura**",
-          "**Firme** del presidente e del segretario"
-        ], nota: "Il verbale è sintetico: riporta le decisioni, non ogni parola detta." },
-        { t: "testo", titolo: "Dopo la riunione", punti: [
-          "Riordinare la sala",
-          "Redigere il verbale **entro 1-2 giorni**",
-          "Farlo controllare a chi ha presieduto",
-          "Inviarlo ai partecipanti",
-          "Inserire in agenda le **scadenze** decise",
-          "Archiviare verbale e documenti nel fascicolo"
-        ]},
-        { t: "testo", titolo: "Le riunioni online", punti: [
-          "Strumenti: Zoom, Microsoft Teams, Google Meet",
-          "Inviare il **link** nella convocazione e nel promemoria",
-          "Provare audio e video **15 minuti prima**",
-          "Chiedere di tenere il microfono **spento** quando non si parla",
-          "Se si registra: **avvisare** i partecipanti"
-        ]},
-        { t: "testo", titolo: "Organizzare un piccolo evento", punti: [
-          "**Obiettivo** e pubblico (convegno, inaugurazione, corso)",
-          "**Budget** disponibile",
-          "Sede, data, programma, relatori",
-          "Inviti e **raccolta adesioni**",
-          "Fornitori: catering, allestimento, audio",
-          "Una **lista di controllo** (checklist) con responsabili e scadenze"
-        ]},
-        { t: "testo", titolo: "Organizzare una trasferta", punti: [
-          "Raccogliere: **destinazione**, date, orari degli impegni, preferenze",
-          "Prenotare **trasporto** (treno, aereo, auto) e **alloggio**",
-          "Rispettare la **policy aziendale** sui costi",
-          "Preparare il **foglio di viaggio**: orari, indirizzi, numeri di prenotazione, contatti",
-          "Documenti: carta d'identità, biglietti, eventuale anticipo spese"
-        ]},
-        { t: "def", titolo: "La nota spese", termine: "Nota spese",
-          testo: "Il modulo con cui chi è stato in trasferta chiede il **rimborso** delle spese sostenute. Ogni voce deve avere il suo **giustificativo** (scontrino, fattura, biglietto)." },
-        { t: "tabella", titolo: "Esempio di nota spese",
-          intest: ["Data", "Voce", "Giustificativo", "Importo"],
-          righe: [
-            ["12/10", "Treno Milazzo–Palermo A/R", "Biglietto", "€ 25,60"],
-            ["12/10", "Pranzo", "Ricevuta", "€ 18,00"],
-            ["12/10", "Parcheggio stazione", "Scontrino", "€ 6,00"],
-            ["", "**Totale**", "", "**€ 49,60**"]
-          ]},
-        { t: "esercizio", titolo: "Simulazione · La riunione",
-          consegna: "Dividetevi in gruppi: un presidente, un segretario, i partecipanti.",
-          punti: ["Argomento: organizzazione della festa di fine anno dell'ufficio", "O.d.G.: 1) Data e luogo  2) Budget  3) Compiti  4) Varie ed eventuali", "Il segretario redige il verbale (20 minuti)"],
-          soluzione: ["Verificare che il verbale contenga: intestazione, presenti, decisioni per ogni punto, chi fa cosa ed entro quando, ora di chiusura, firme."] },
-        { t: "quiz", domanda: "Con che cosa si chiude di solito l'ordine del giorno?",
-          opzioni: ["Saluti finali", "Varie ed eventuali", "Approvazione del bilancio"],
-          giusta: 1, spiega: "«Varie ed eventuali» permette di trattare brevemente argomenti non previsti." },
-        { t: "quiz", domanda: "Il verbale deve riportare…",
-          opzioni: ["ogni parola detta da ciascuno", "le decisioni prese e chi deve fare cosa", "solo l'elenco dei presenti"],
-          giusta: 1, spiega: "Il verbale è un documento sintetico: conta che cosa si è deciso." },
-        { t: "riepilogo", punti: [
-          "Riunione: convocazione con O.d.G., preparazione, conferma",
-          "Verbale: presenti, decisioni, firme — entro 1-2 giorni",
-          "Eventi: obiettivo, budget e checklist",
-          "Trasferte: foglio di viaggio e nota spese con giustificativi"
-        ]}
-      ]
+      titolo: "Accoglienza e gestione del front office",
+      sintesi: "Ricevimento dei visitatori, gestione delle richieste e relazione con clienti e fornitori.",
+      testo: `
+Il **front office** è la parte dell'ufficio a contatto diretto con il pubblico. Chi vi lavora è il «biglietto da visita» dell'azienda.
+
+## Il ricevimento dei visitatori
+- **Alzare lo sguardo** e salutare subito; se si è al telefono, un cenno con il capo.
+- Presentarsi e chiedere **nome** e **motivo** della visita.
+- Verificare se il visitatore ha un appuntamento.
+- Avvisare la persona interessata.
+- Far accomodare il visitatore e, se previsto, offrire acqua o un caffè.
+- Se l'attesa si allunga, **aggiornarlo** spesso.
+- Accompagnarlo, invece di indicare soltanto la strada.
+
+## La gestione delle richieste
+- Ascoltare con attenzione e prendere nota.
+- Se si può rispondere subito, farlo con precisione.
+- Se non si è competenti, indirizzare alla persona giusta: «Verifico subito chi può aiutarla».
+- Se serve tempo, dare un **termine preciso** e rispettarlo: «La richiamo entro le 12».
+- Non promettere mai ciò che non si può mantenere.
+
+## La relazione con clienti e fornitori
+- **Clienti**: sono la ragione d'essere dell'azienda; vanno trattati con cortesia, rapidità e disponibilità, ricordando le loro esigenze.
+- **Fornitori**: rapporto corretto e professionale, rispetto degli accordi, comunicazioni chiare su ordini, consegne e pagamenti.
+- Con entrambi: dare del **Lei**, usare un linguaggio adeguato, mantenere la calma anche nelle situazioni difficili.
+
+| Frasi da evitare | Frasi da usare |
+| «Non è compito mio» | «Verifico subito chi può aiutarla» |
+| «Non so niente» | «Mi informo e le faccio sapere entro oggi» |
+| «Ripassi più tardi» | «Posso farla richiamare? A che numero?» |
+`
     },
-    /* ---------------- LEZIONE 9 ---------------- */
     {
-      n: 9,
-      titolo: "Strumenti d'ufficio e documenti amministrativi",
-      sottotitolo: "Informatica di base, documenti commerciali, verifica finale",
-      obiettivi: [
-        "Conoscere gli strumenti informatici dell'ufficio",
-        "Riconoscere i principali documenti commerciali",
-        "Conoscere le basi della fattura elettronica",
-        "Ripassare l'intero corso con la verifica finale"
-      ],
-      scaletta: [
-        ["0:00 – 0:15", "Ripasso della lezione 8"],
-        ["0:15 – 1:10", "Strumenti informatici e attrezzature d'ufficio"],
-        ["1:10 – 1:25", "Pausa"],
-        ["1:25 – 2:30", "Documenti commerciali e fattura elettronica"],
-        ["2:30 – 3:30", "Verifica finale del corso"],
-        ["3:30 – 4:00", "Correzione, valutazione del corso e saluti"]
-      ],
-      slide: [
-        { t: "tabella", titolo: "Gli strumenti informatici",
-          intest: ["Strumento", "Esempi", "Serve per"],
-          righe: [
-            ["**Videoscrittura**", "Word, Google Documenti, LibreOffice Writer", "Lettere, verbali, modelli"],
-            ["**Foglio di calcolo**", "Excel, Google Fogli", "Elenchi, scadenzari, calcoli, note spese"],
-            ["**Posta elettronica**", "Outlook, Gmail", "Email e PEC"],
-            ["**Calendario**", "Outlook, Google Calendar", "Agenda condivisa"],
-            ["**Cloud**", "OneDrive, Google Drive", "Documenti condivisi"],
-            ["**Gestionali**", "Programmi di contabilità e protocollo", "Fatture, registri"]
-          ]},
-        { t: "testo", titolo: "Trucchi utili di videoscrittura", punti: [
-          "Usare i **modelli**: carta intestata pronta, non rifatta ogni volta",
-          "**Stampa unione**: la stessa lettera a 100 destinatari, ognuno col suo nome",
-          "**Stili** per titoli e paragrafi: impaginazione uniforme",
-          "Controllo **ortografico** sempre attivo",
-          "Scorciatoie: **Ctrl+C** copia · **Ctrl+V** incolla · **Ctrl+Z** annulla · **Ctrl+S** salva"
-        ]},
-        { t: "testo", titolo: "Il foglio di calcolo in segreteria", punti: [
-          "**Elenchi**: clienti, fornitori, presenze",
-          "**Ordinare** e **filtrare** i dati in un clic",
-          "Formule semplici: **=SOMMA()**, **=MEDIA()**",
-          "Scadenzario con colori automatici (formattazione condizionale)",
-          "Una riga = un elemento; una colonna = un'informazione"
-        ]},
-        { t: "testo", titolo: "Le attrezzature d'ufficio", punti: [
-          "**Stampante multifunzione**: stampa, copia, scansione",
-          "Scansione: risoluzione 300 dpi, in PDF, con nome corretto",
-          "**Centralino** e telefoni: trasferimento, attesa, conferenza",
-          "**Distruggidocumenti**",
-          "Piccola manutenzione: carta, toner, inceppamenti; per il resto, l'assistenza"
-        ]},
-        { t: "flusso", titolo: "Il ciclo dei documenti commerciali", passi: [
-          { titolo: "Preventivo", testo: "Il venditore propone prezzo e condizioni" },
-          { titolo: "Ordine", testo: "Il compratore chiede la merce" },
-          { titolo: "Conferma", testo: "Il venditore accetta l'ordine" },
-          { titolo: "DDT", testo: "Accompagna la merce nel trasporto" },
-          { titolo: "Fattura", testo: "Chiede il pagamento; documento fiscale" },
-          { titolo: "Ricevuta", testo: "Attesta l'avvenuto pagamento" }
-        ]},
-        { t: "testo", titolo: "Che cosa contiene una fattura", punti: [
-          "Numero progressivo e **data**",
-          "Dati di **venditore** e **acquirente** (denominazione, indirizzo, P.IVA o codice fiscale)",
-          "**Descrizione**, quantità e prezzo dei beni o servizi",
-          "**Imponibile**, aliquota **IVA**, importo IVA",
-          "**Totale** da pagare",
-          "Modalità e scadenza di **pagamento**"
-        ]},
-        { t: "def", titolo: "La fattura elettronica", termine: "Fattura elettronica",
-          testo: "Dal **1° gennaio 2019** quasi tutte le fatture tra operatori italiani sono elettroniche: un file **XML** trasmesso tramite il **Sistema di Interscambio (SdI)** dell'Agenzia delle Entrate. Per riceverla servono un **codice destinatario** o un indirizzo **PEC**." },
-        { t: "testo", titolo: "La prima nota", punti: [
-          "Registro semplice di tutte le **entrate** e **uscite** di denaro",
-          "Per ogni movimento: **data**, **descrizione**, **importo**, cassa o banca",
-          "Si aggiorna **ogni giorno**",
-          "Si controlla con il saldo di cassa e l'estratto conto",
-          "È la base per il lavoro del commercialista"
-        ]},
-        { t: "tabella", titolo: "Esempio di prima nota",
-          intest: ["Data", "Descrizione", "Entrate", "Uscite"],
-          righe: [
-            ["01/10", "Saldo iniziale cassa", "€ 300,00", ""],
-            ["03/10", "Acquisto francobolli", "", "€ 12,50"],
-            ["05/10", "Incasso fattura n. 40", "€ 150,00", ""],
-            ["07/10", "Acquisto cancelleria", "", "€ 37,80"],
-            ["", "**Saldo finale**", "**€ 399,70**", ""]
-          ]},
-        { t: "testo", titolo: "Ripasso generale del corso", punti: [
-          "**Modulo 1**: documento, archivio, protocollo, titolario, fascicolo, ordinamenti, scarto, archivio digitale, firma, PEC, backup, GDPR",
-          "**Modulo 2**: ruolo e organizzazione, agenda e priorità, comunicazione e telefono, corrispondenza, riunioni e trasferte, documenti amministrativi"
-        ]},
-        { t: "quiz", domanda: "VERIFICA 1 · Il registro di protocollo serve a…",
-          opzioni: ["dare numero e data certi ai documenti", "stampare le lettere", "calcolare l'IVA"],
-          giusta: 0, spiega: "Lezione 2: il protocollo è la «carta d'identità» del documento." },
-        { t: "quiz", domanda: "VERIFICA 2 · Dove si archivia «Il Mulino srl»?",
-          opzioni: ["Alla I", "Alla M", "Alla S"],
-          giusta: 1, spiega: "Lezione 3: si ignorano articolo e forma societaria." },
-        { t: "quiz", domanda: "VERIFICA 3 · Quale formato è adatto alla conservazione?",
-          opzioni: ["DOCX", "PDF/A", "Un formato di un vecchio programma"],
-          giusta: 1, spiega: "Lezione 4: il PDF/A è nato apposta per durare nel tempo." },
-        { t: "quiz", domanda: "VERIFICA 4 · Un'attività urgente e importante va…",
-          opzioni: ["fatta subito", "delegata", "eliminata"],
-          giusta: 0, spiega: "Lezione 5: primo quadrante della matrice di Eisenhower." },
-        { t: "quiz", domanda: "VERIFICA 5 · Come si risponde al telefono?",
-          opzioni: ["«Pronto?»", "«Buongiorno, Studio Rossi, sono Anna, come posso aiutarla?»", "«Sì, dica»"],
-          giusta: 1, spiega: "Lezione 6: saluto, azienda, nome, offerta di aiuto." },
-        { t: "quiz", domanda: "VERIFICA 6 · «Distinti saluti» si usa con…",
-          opzioni: ["un amico", "un'azienda", "un collega con cui si dà del tu"],
-          giusta: 1, spiega: "Lezione 7: è la chiusura formale per aziende ed enti." },
-        { t: "quiz", domanda: "VERIFICA 7 · Il verbale va redatto…",
-          opzioni: ["entro 1-2 giorni dalla riunione", "dopo un mese", "solo se qualcuno lo chiede"],
-          giusta: 0, spiega: "Lezione 8: a memoria fresca, poi va controllato e inviato." },
-        { t: "quiz", domanda: "VERIFICA 8 · Quale documento accompagna la merce durante il trasporto?",
-          opzioni: ["Il preventivo", "Il DDT", "La prima nota"],
-          giusta: 1, spiega: "Lezione 9: il Documento di Trasporto." },
-        { t: "riepilogo", punti: [
-          "Strumenti: videoscrittura, foglio di calcolo, posta, calendario, cloud",
-          "Ciclo commerciale: preventivo → ordine → DDT → fattura → pagamento",
-          "Fattura elettronica XML tramite SdI dal 2019",
-          "Grazie a tutti e buon lavoro!"
-        ]}
-      ]
+      titolo: "Gestione delle telefonate",
+      sintesi: "Tecniche di risposta, trasferimento delle chiamate, raccolta dei messaggi e gestione dei reclami.",
+      testo: `
+## Le tecniche di risposta
+- Rispondere entro **tre squilli**.
+- Formula: **saluto + nome dell'azienda + proprio nome + offerta di aiuto**.
+
+> «Buongiorno, Studio Rossi, sono Anna, come posso aiutarla?»
+
+- Parlare con voce chiara, non troppo veloce, e con un sorriso.
+- Avere sempre **carta e penna** (o il computer) a portata di mano.
+- Usare il nome dell'interlocutore durante la conversazione.
+
+## Il trasferimento delle chiamate
+- Chiedere **chi parla** e il **motivo** della chiamata.
+- «Attenda un momento, verifico se il dottore è disponibile.»
+- Prima di trasferire, **annunciare** la chiamata al collega (nome e motivo).
+- Non lasciare in attesa senza notizie per più di 30-40 secondi.
+- Se il collega non può rispondere: proporre di **richiamare** o di lasciare un messaggio.
+
+## La raccolta dei messaggi
+Un messaggio telefonico completo contiene:
+- **per chi** è il messaggio;
+- **data e ora** della chiamata;
+- **chi** ha chiamato (nome e azienda);
+- **recapito** per richiamare (ripeterlo al chiamante per verifica);
+- **motivo** della chiamata, in breve;
+- **azione** richiesta (richiamare, inviare un documento, attendere);
+- **firma** di chi ha preso il messaggio.
+
+## La gestione dei reclami
+1. **Ascoltare** fino in fondo, senza interrompere.
+2. Restare **calmi**: non è un attacco personale.
+3. Mostrare **comprensione**: «Capisco il suo disagio».
+4. Raccogliere tutti i **dati** (nome, recapito, ordine o pratica, problema).
+5. Proporre una **soluzione** o un tempo preciso per averla.
+6. **Registrare** il reclamo e **richiamare** come promesso.
+
+## La telefonata in uscita
+Prepararla (scopo, dati, documenti sottomano), presentarsi subito, chiedere se è un buon momento per parlare, andare al punto, concludere **riassumendo** gli accordi presi.
+`
+    },
+    {
+      titolo: "Gestione della posta elettronica",
+      sintesi: "Scrittura di email professionali, PEC, organizzazione della casella di posta e gestione degli allegati.",
+      testo: `
+## Scrivere un'email professionale
+- **Oggetto** sempre presente e specifico: «Preventivo n. 45 – fornitura carta A4».
+- **Saluto** iniziale adeguato: «Gentile Dott. Bianchi,» / «Gentili Signori,».
+- Testo **breve**, diviso in paragrafi; una richiesta chiara.
+- **Chiusura** e **firma** completa: nome, ruolo, azienda, telefono.
+- Rileggere sempre prima di inviare.
+- Rispondere entro **24 ore**, anche solo per confermare la ricezione.
+
+Da evitare: scrivere tutto in MAIUSCOLO (equivale a urlare), emoticon, abbreviazioni da chat, scrivere quando si è arrabbiati.
+
+## I destinatari: A, CC e CCN
+- **A**: chi deve leggere e agire.
+- **CC** (copia conoscenza): chi deve essere informato.
+- **CCN** (copia nascosta): per invii a molte persone senza mostrare gli indirizzi a tutti, nel rispetto della privacy.
+- «Rispondi a tutti» solo se la risposta serve davvero a tutti.
+
+## La PEC
+La **Posta Elettronica Certificata** ha lo stesso valore legale di una raccomandata con ricevuta di ritorno, se anche il destinatario usa una PEC. Il gestore rilascia una **ricevuta di accettazione** e una **ricevuta di consegna**, che vanno **conservate**. La casella PEC va controllata **ogni giorno** e i messaggi ricevuti vanno protocollati.
+
+## Organizzare la casella di posta
+- Creare **cartelle** per cliente, fornitore o argomento.
+- Usare le **regole** (filtri) per smistare automaticamente alcune email.
+- Usare i **contrassegni** per le email da gestire.
+- Spostare le email già trattate nelle cartelle: la posta in arrivo deve contenere solo ciò che è ancora da fare.
+- Eliminare pubblicità e messaggi inutili; svuotare periodicamente il cestino.
+
+## Gestire gli allegati
+- Inviare preferibilmente in **PDF**, con nomi chiari.
+- Citare sempre gli allegati nel testo e controllare di averli inseriti.
+- Per file molto grandi usare un **link** di condivisione.
+- **Non aprire** allegati sospetti o di mittenti sconosciuti: possono contenere virus (phishing).
+- Salvare gli allegati importanti nell'archivio digitale, nella cartella giusta.
+`
+    },
+    {
+      titolo: "Gestione della corrispondenza",
+      sintesi: "Ricezione, smistamento, registrazione e invio della posta in entrata e in uscita.",
+      testo: `
+## La ricezione
+La corrispondenza arriva per posta ordinaria, raccomandata, corriere, consegna a mano, email e PEC.
+- Controllare che sia davvero indirizzata all'azienda.
+- Per le raccomandate e le consegne a mano: firmare la ricevuta e annotare data e ora.
+- Aprire la posta (salvo quella indicata come **personale** o **riservata**, che va consegnata chiusa).
+- Verificare che gli allegati annunciati siano presenti.
+
+## Lo smistamento
+- Separare la posta per **ufficio** o **persona** competente.
+- Distinguere: documenti da protocollare, pubblicità, riviste, comunicazioni personali.
+- Dare la precedenza a ciò che è **urgente** o ha una **scadenza**.
+
+## La registrazione
+- La posta importante in entrata si registra nel **protocollo** (numero, data, mittente, oggetto).
+- Si appone la **segnatura** sul documento.
+- Si consegna al destinatario interno e si archivia nel fascicolo della pratica.
+
+## L'invio della posta in uscita
+- Controllare che il documento sia **firmato**, completo di allegati e senza errori.
+- Registrare nel protocollo la posta in uscita.
+- Scegliere il mezzo più adatto:
+
+| Mezzo | Quando usarlo |
+| Posta ordinaria | Comunicazioni senza valore legale |
+| Raccomandata | Quando serve la prova della spedizione |
+| Raccomandata con ricevuta di ritorno | Quando serve la prova della consegna |
+| PEC | Come la raccomandata con ricevuta di ritorno, ma in digitale |
+| Corriere | Pacchi e documenti urgenti |
+| Email | Comunicazioni rapide di lavoro |
+
+- Conservare le **ricevute** di spedizione e di consegna insieme alla copia del documento inviato.
+
+> Il percorso è sempre lo stesso: **ricevo → smisto → registro → assegno → archivio**.
+`
+    },
+    {
+      titolo: "Tecniche di archiviazione",
+      sintesi: "Classificazione, fascicolazione, protocollazione e archiviazione cartacea e digitale.",
+      testo: `
+Questo argomento riprende, dal punto di vista del lavoro quotidiano di segreteria, quanto spiegato nel **Modulo 1 – Tecniche di archiviazione**.
+
+## La classificazione
+Ogni documento riceve una **categoria** secondo il criterio scelto dall'ufficio: alfabetico, numerico, cronologico, alfanumerico o per argomento. Lo schema delle categorie si chiama **titolario**.
+
+## La fascicolazione
+Ogni documento va inserito nel **fascicolo** della pratica a cui appartiene, in ordine cronologico. Il fascicolo si apre con il primo documento e si chiude quando la pratica è conclusa.
+
+## La protocollazione
+I documenti in entrata e in uscita si registrano nel **protocollo**, che assegna un numero e una data certi e permette di seguirne il percorso.
+
+## L'archiviazione cartacea
+Fascicoli, raccoglitori e faldoni con **etichette** chiare, sistemati in armadi e scaffali in locali asciutti e protetti.
+
+## L'archiviazione digitale
+Cartelle informatiche ordinate come l'archivio cartaceo, file con **nomi** chiari (data nel formato AAAA-MM-GG), formati adatti alla conservazione come il **PDF/A**, **backup** regolari.
+
+## La routine di segreteria
+- Ogni giorno: protocollare e smistare la posta, archiviare i documenti trattati.
+- Ogni settimana: controllare che non ci siano documenti «volanti» sulle scrivanie.
+- Ogni anno: chiudere i fascicoli conclusi e trasferirli nell'archivio di deposito.
+
+> Archiviare **subito**, non «quando avrò tempo»: il tempo per riordinare un mese di carte non arriva mai.
+`
+    },
+    {
+      titolo: "Gestione dell'agenda e degli appuntamenti",
+      sintesi: "Pianificazione delle attività, organizzazione delle riunioni e gestione delle scadenze.",
+      testo: `
+## L'agenda
+- Usare **una sola** agenda, cartacea o digitale (es. Google Calendar, Outlook), non foglietti sparsi.
+- Per ogni appuntamento annotare: **chi**, **quando**, **dove**, **perché** e un **recapito**.
+- Lasciare **margini di tempo** tra un impegno e l'altro.
+- Condividere l'agenda con il responsabile, se richiesto.
+- **Confermare** gli appuntamenti il giorno prima.
+
+## La pianificazione delle attività
+- Iniziare la giornata con la **lista delle cose da fare**.
+- Stabilire le **priorità**: prima ciò che è urgente e importante.
+- Raggruppare le attività simili (es. tutte le telefonate insieme).
+- Limitare le interruzioni: controllare la posta a orari fissi.
+
+| | Urgente | Non urgente |
+| **Importante** | Fallo subito | Pianificalo |
+| **Non importante** | Delegalo | Eliminalo |
+
+## L'organizzazione delle riunioni
+**Prima**
+- Definire scopo, partecipanti, data, ora e durata.
+- Prenotare la sala o preparare il collegamento online.
+- Inviare la **convocazione** con l'**ordine del giorno** (l'elenco numerato degli argomenti, che di solito termina con «Varie ed eventuali»).
+- Preparare documenti e materiali; confermare il giorno prima.
+
+**Durante**
+- Raccogliere le firme di presenza, assicurarsi che tutto funzioni, prendere appunti su decisioni, compiti e scadenze.
+
+**Dopo**
+- Redigere il **verbale** entro 1-2 giorni, farlo approvare, inviarlo ai partecipanti, inserire in agenda le scadenze decise.
+
+## La gestione delle scadenze
+- Tenere uno **scadenzario**: pagamenti, rinnovi, contratti, dichiarazioni, revisioni.
+- Impostare promemoria con **anticipo** (ad esempio 15 giorni e 3 giorni prima).
+- Controllarlo **ogni mattina**.
+`
+    },
+    {
+      titolo: "Redazione di documenti aziendali",
+      sintesi: "Lettere commerciali, comunicazioni interne, verbali, circolari e modulistica.",
+      testo: `
+## La lettera commerciale
+Le parti della lettera:
+- **intestazione** del mittente (nome, indirizzo, contatti);
+- **luogo e data**;
+- **destinatario** con indirizzo;
+- eventuale **riferimento** (Vs. rif., Ns. rif., numero di protocollo);
+- **oggetto**;
+- **formula di apertura** («Spett.le Ditta», «Gentile Sig.ra Rossi»);
+- **corpo** della lettera: introduzione, sviluppo, conclusione;
+- **formula di chiusura** («Distinti saluti», «Cordiali saluti») e **firma**;
+- indicazione degli **allegati**.
+
+| Abbreviazione | Significato |
+| Spett.le | Spettabile |
+| Vs. / Ns. | Vostro / Nostro |
+| c.a. | Alla cortese attenzione |
+| p.c. | Per conoscenza |
+| All. | Allegato/i |
+
+## Le comunicazioni interne
+Messaggi tra uffici o colleghi della stessa azienda (note, promemoria, email interne). Devono indicare **mittente**, **destinatari**, **data**, **oggetto** e un testo breve e chiaro. Il tono è meno formale di una lettera, ma sempre professionale.
+
+## La circolare
+Comunicazione inviata **a molte persone** contemporaneamente (tutto il personale, tutti i clienti) per dare informazioni o disposizioni: nuovi orari, chiusure, procedure. Contiene:
+- numero progressivo e data;
+- destinatari («A tutto il personale»);
+- oggetto;
+- testo con le informazioni o le disposizioni;
+- firma del responsabile.
+
+## Il verbale
+Documento che riporta in modo **sintetico** ciò che è avvenuto e ciò che si è deciso in una riunione:
+- tipo di riunione, data, ora e luogo;
+- presenti e assenti; chi presiede e chi verbalizza;
+- per ogni punto dell'ordine del giorno: sintesi della discussione e **decisioni**;
+- ora di chiusura;
+- firme del presidente e del segretario.
+
+## La modulistica
+I **moduli** sono documenti già impostati da compilare (richieste di ferie, ordini, schede clienti, ricevute).
+- Usare sempre la **versione aggiornata** del modulo.
+- Indicare chiaramente i campi **obbligatori**.
+- Conservare i modelli in una cartella condivisa, con la data di aggiornamento.
+`
+    },
+    {
+      titolo: "Elementi di segreteria amministrativa",
+      sintesi: "Gestione di ordini, preventivi, fatture, DDT e documentazione aziendale.",
+      testo: `
+La segreteria collabora spesso con l'amministrazione nella gestione dei documenti commerciali. È importante conoscerne il **ciclo**:
+
+| Documento | Chi lo emette | A che cosa serve |
+| **Preventivo** | Venditore | Proporre prezzi e condizioni |
+| **Ordine** | Compratore | Chiedere la merce o il servizio |
+| **Conferma d'ordine** | Venditore | Accettare l'ordine |
+| **DDT** | Venditore | Accompagnare la merce durante il trasporto |
+| **Fattura** | Venditore | Chiedere il pagamento; documento fiscale |
+
+## Il preventivo
+Indica descrizione dei beni o servizi, quantità, prezzi, IVA, tempi di consegna, condizioni di pagamento e **validità** dell'offerta. Va numerato, datato e archiviato, anche se non viene accettato.
+
+## L'ordine
+Contiene: dati del cliente e del fornitore, riferimento al preventivo, descrizione e quantità, prezzo, luogo e data di consegna, modalità di pagamento. La segreteria lo registra, lo inoltra all'ufficio competente e ne controlla l'esecuzione.
+
+## Il DDT (Documento di trasporto)
+Accompagna la merce. Riporta: numero e data, mittente e destinatario, descrizione e quantità dei beni, causale del trasporto (vendita, reso, riparazione), firma di chi consegna e di chi riceve. Al ricevimento si **controlla** che la merce corrisponda a quanto indicato.
+
+## La fattura
+Contiene:
+- numero progressivo e data;
+- dati di venditore e acquirente (denominazione, indirizzo, partita IVA o codice fiscale);
+- descrizione, quantità e prezzo;
+- imponibile, aliquota IVA e importo dell'IVA;
+- totale da pagare;
+- modalità e scadenza del pagamento.
+
+Dal 1° gennaio 2019 la fattura tra operatori italiani è, salvo eccezioni, **elettronica**: un file XML inviato tramite il **Sistema di Interscambio (SdI)**. Per riceverla l'azienda comunica un **codice destinatario** o un indirizzo **PEC**.
+
+## La documentazione aziendale
+Preventivi, ordini, DDT e fatture di una stessa fornitura vanno **collegati** tra loro (stesso fascicolo o stessi riferimenti), in modo da poter controllare che ciò che è stato ordinato sia stato consegnato e fatturato correttamente.
+
+> Controllo incrociato: **ordine = DDT = fattura**. Se qualcosa non corrisponde, va segnalato subito.
+`
+    },
+    {
+      titolo: "Privacy e riservatezza in ufficio",
+      sintesi: "Protezione dei dati personali, GDPR, sicurezza delle informazioni e comportamento professionale.",
+      testo: `
+## La protezione dei dati personali
+In segreteria passano ogni giorno dati personali: nomi, indirizzi, telefoni, codici fiscali, coordinate bancarie, a volte dati sulla salute. Proteggerli è un **obbligo di legge** e un dovere professionale.
+
+## Il GDPR
+Il **Regolamento UE 2016/679** stabilisce i principi per il trattamento dei dati personali:
+- **liceità e trasparenza**: la persona deve sapere come vengono usati i suoi dati (informativa);
+- **limitazione della finalità**: i dati si usano solo per lo scopo per cui sono stati raccolti;
+- **minimizzazione**: si raccolgono solo i dati necessari;
+- **esattezza**: i dati vanno tenuti aggiornati;
+- **limitazione della conservazione**: si conservano solo per il tempo necessario;
+- **sicurezza**: vanno protetti da perdita, furto e accessi non autorizzati.
+
+Le persone hanno diritto di **accedere** ai propri dati, di chiederne la **correzione** e, in certi casi, la **cancellazione**. Se si verifica una violazione (furto di dati, invio a persone sbagliate), va segnalata **subito** al responsabile: l'azienda può avere l'obbligo di comunicarla al Garante entro 72 ore.
+
+## La sicurezza delle informazioni
+- Bloccare lo schermo quando ci si allontana dalla scrivania.
+- Password personali e robuste, mai comunicate a nessuno.
+- Non lasciare documenti sulla scrivania, nella stampante o nella fotocopiatrice.
+- Chiudere a chiave armadi e cassetti con documenti riservati.
+- Distruggere i documenti con il distruggidocumenti, non gettarli nel cestino.
+- Diffidare di email e telefonate che chiedono dati o password.
+- Usare la **copia nascosta (CCN)** negli invii a molti destinatari.
+
+## Il comportamento professionale
+- Non parlare di clienti, colleghi o pratiche fuori dall'ufficio né nelle aree comuni.
+- Al telefono, non dare informazioni su altre persone senza verificare chi chiama.
+- Allo sportello, garantire una **distanza** di cortesia tra chi è servito e chi attende.
+- Non usare i dati dell'azienda per scopi personali.
+
+> La riservatezza è la qualità più apprezzata in chi lavora in segreteria: si costruisce in anni e si perde in un attimo.
+`
     }
     ]
   }
